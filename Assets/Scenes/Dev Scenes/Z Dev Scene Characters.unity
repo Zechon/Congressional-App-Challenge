@@ -1020,9 +1020,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fa8a6f543d91a4ab798c1d7aff0379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonTimerLimit: 2
+  NextSceneName: 
   weighedIdeals: 0
   OrangeLeaning: 0
   warning: {fileID: 1906232665}
+  warnText: {fileID: 0}
+  partyBox: {fileID: 0}
+  partyText: {fileID: 0}
+  prtyChoose: {fileID: 0}
+  youChose: {fileID: 0}
   Idl1Tggl: 0
   Idl2Tggl: 0
   Idl3Tggl: 0
