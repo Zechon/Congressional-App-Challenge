@@ -16,5 +16,5 @@ MonoBehaviour:
   role: 2
   stat1: 5
   skill: 3
-  cost: 0
+  cost: 3
   description: Charismatic and trendy; draws crowds, but their campaigns lack follow-through.

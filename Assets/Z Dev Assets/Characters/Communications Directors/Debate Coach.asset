@@ -12,9 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebd70e5c547e024dbba8ba8a6404c36, type: 3}
   m_Name: Debate Coach
   m_EditorClassIdentifier: 
-  staffName: Debate Coach
   role: 1
+  staffName: Debate Coach
+  description: "Raises candidate\u2019s performance dramatically."
   stat1: 3
   skill: 5
   cost: 5
-  description: "Raises candidate\u2019s performance dramatically."
+  mannequinPrefab: {fileID: 445536162423017614, guid: 48fc058d0a45df341b230bb1002c405c, type: 3}
+  shirtOptions: []
+  hatOptions: []
+  misc1Options: []
+  misc2Options: []
+  selectedShirt: {fileID: 0}
+  selectedHat: {fileID: 0}
+  selectedMisc1: {fileID: 0}
+  selectedMisc2: {fileID: 0}
+  assignedSkin: {r: 0, g: 0, b: 0, a: 0}
+  assignedShirt: {r: 0, g: 0, b: 0, a: 0}
+  assignedHat: {r: 0, g: 0, b: 0, a: 0}
+  assignedMisc1: {r: 0, g: 0, b: 0, a: 0}
+  assignedMisc2: {r: 0, g: 0, b: 0, a: 0}
