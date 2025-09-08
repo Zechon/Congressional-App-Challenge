@@ -12,9 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebd70e5c547e024dbba8ba8a6404c36, type: 3}
   m_Name: Academic Expert
   m_EditorClassIdentifier: 
-  staffName: Academic Expert
   role: 1
+  staffName: Academic Expert
+  description: Fact-heavy, great defenses, boring delivery.
   stat1: 2
   skill: 4
   cost: 4
-  description: Fact-heavy, great defenses, boring delivery.
+  mannequinPrefab: {fileID: 1566031561137990389, guid: c597b5b8094492d4282b28993aaf8980, type: 3}
+  shirtOptions:
+  - {fileID: -1112217813, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1748900784, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  hatOptions:
+  - {fileID: 1347098889, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 277294088, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  misc1Options:
+  - {fileID: -1085292374, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 273027540, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 277294088, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 207757875, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: -973311342, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  misc2Options:
+  - {fileID: 1581186270, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 277294088, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 277294088, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: -72624351, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedShirt: {fileID: 1748900784, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedHat: {fileID: 277294088, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedMisc1: {fileID: 207757875, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedMisc2: {fileID: 277294088, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  assignedSkin: {r: 0.9, g: 0.7, b: 0.5, a: 1}
+  assignedShirt: {r: 0.114841744, g: 0.69571096, b: 0.92763364, a: 1}
+  assignedHat: {r: 0.114841744, g: 0.36935702, b: 0.92763364, a: 1}
+  assignedMisc1: {r: 0.92763364, g: 0.114841744, b: 0.80685425, a: 1}
+  assignedMisc2: {r: 0.92763364, g: 0.20900133, b: 0.114841744, a: 1}
