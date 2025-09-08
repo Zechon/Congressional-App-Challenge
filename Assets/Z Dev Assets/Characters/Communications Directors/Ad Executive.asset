@@ -12,9 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebd70e5c547e024dbba8ba8a6404c36, type: 3}
   m_Name: Ad Executive
   m_EditorClassIdentifier: 
-  staffName: Ad Executive
   role: 1
+  staffName: Ad Executive
+  description: Polished ad campaigns, costs plenty.
   stat1: 4
   skill: 4
   cost: 4
-  description: Polished ad campaigns, costs plenty.
+  mannequinPrefab: {fileID: 1566031561137990389, guid: c597b5b8094492d4282b28993aaf8980, type: 3}
+  shirtOptions:
+  - {fileID: 1748900784, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1748900784, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1748900784, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: -1112217813, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  hatOptions:
+  - {fileID: 1347098889, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 277294088, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 277294088, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1223555096, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  misc1Options:
+  - {fileID: -973311342, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 273027540, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 277294088, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  misc2Options:
+  - {fileID: -72624351, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 277294088, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 418883748, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 418883748, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 418883748, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedShirt: {fileID: 1748900784, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedHat: {fileID: 1223555096, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedMisc1: {fileID: 273027540, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedMisc2: {fileID: -72624351, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  assignedSkin: {r: 0.9, g: 0.7, b: 0.5, a: 1}
+  assignedShirt: {r: 0.677558, g: 0.73653716, b: 0.13305227, a: 1}
+  assignedHat: {r: 0.72353905, g: 0.73653716, b: 0.13305227, a: 1}
+  assignedMisc1: {r: 0.13305227, g: 0.73653716, b: 0.34170032, a: 1}
+  assignedMisc2: {r: 0.48946267, g: 0.13305227, b: 0.73653716, a: 1}

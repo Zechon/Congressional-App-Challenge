@@ -12,9 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebd70e5c547e024dbba8ba8a6404c36, type: 3}
   m_Name: Spin Doctor
   m_EditorClassIdentifier: 
-  staffName: Spin Doctor
   role: 1
+  staffName: Spin Doctor
+  description: Elite narrative controller, but very expensive.
   stat1: 4
   skill: 5
   cost: 5
-  description: Elite narrative controller, but very expensive.
+  mannequinPrefab: {fileID: 1566031561137990389, guid: c597b5b8094492d4282b28993aaf8980, type: 3}
+  shirtOptions: []
+  hatOptions: []
+  misc1Options: []
+  misc2Options: []
+  selectedShirt: {fileID: 0}
+  selectedHat: {fileID: 0}
+  selectedMisc1: {fileID: 0}
+  selectedMisc2: {fileID: 0}
+  assignedSkin: {r: 0.98, g: 0.8, b: 0.6, a: 1}
+  assignedShirt: {r: 0.148517, g: 0.109787986, b: 0.714896, a: 1}
+  assignedHat: {r: 0.109787986, g: 0.2438612, b: 0.714896, a: 1}
+  assignedMisc1: {r: 0.714896, g: 0.109787986, b: 0.54968554, a: 1}
+  assignedMisc2: {r: 0.6727767, g: 0.714896, b: 0.109787986, a: 1}

@@ -12,9 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebd70e5c547e024dbba8ba8a6404c36, type: 3}
   m_Name: Volunteer Blogger
   m_EditorClassIdentifier: 
-  staffName: Volunteer Blogger
   role: 1
+  staffName: Volunteer Blogger
+  description: Meme-savvy, but with an unprofessional polish.
   stat1: 2
   skill: 3
   cost: 3
-  description: Meme-savvy, but with an unprofessional polish.
+  mannequinPrefab: {fileID: 1566031561137990389, guid: c597b5b8094492d4282b28993aaf8980, type: 3}
+  shirtOptions: []
+  hatOptions: []
+  misc1Options: []
+  misc2Options: []
+  selectedShirt: {fileID: 0}
+  selectedHat: {fileID: 0}
+  selectedMisc1: {fileID: 0}
+  selectedMisc2: {fileID: 0}
+  assignedSkin: {r: 0.4, g: 0.25, b: 0.15, a: 1}
+  assignedShirt: {r: 0.3106453, g: 0.13869783, b: 0.9275826, a: 1}
+  assignedHat: {r: 0.13869788, g: 0.28113675, b: 0.9275826, a: 1}
+  assignedMisc1: {r: 0.9275826, g: 0.40274522, b: 0.13869788, a: 1}
+  assignedMisc2: {r: 0.7677561, g: 0.9275826, b: 0.13869788, a: 1}

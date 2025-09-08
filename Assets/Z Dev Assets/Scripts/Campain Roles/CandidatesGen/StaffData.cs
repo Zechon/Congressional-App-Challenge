@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening.Plugins.Options;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "NewStaff", menuName = "Campaign/Staff")]
 public class StaffData : ScriptableObject
@@ -48,5 +49,43 @@ public class StaffData : ScriptableObject
 
         if (selectedHat == null && hatOptions.Length > 0)
             selectedHat = hatOptions[Random.Range(0, hatOptions.Length)];
+    }
+
+    public void AssignColorsIfNeeded()
+    {
+        // Assign skin tone if unassigned
+        if (assignedSkin == default)
+            assignedSkin = GetRandomSkinColor();
+
+        // Base clothing color for harmony
+        if (assignedShirt == default && assignedHat == default && assignedMisc1 == default && assignedMisc2 == default)
+        {
+            Color baseColor = Random.ColorHSV(0f, 1f, 0.6f, 0.9f, 0.7f, 1f);
+
+            assignedShirt = baseColor;
+            assignedHat = ShiftHue(baseColor, Random.Range(-0.1f, 0.1f));
+            assignedMisc1 = ShiftHue(baseColor, Random.Range(0.2f, 0.4f));
+            assignedMisc2 = ShiftHue(baseColor, Random.Range(0.4f, 0.6f));
+        }
+    }
+
+    private Color GetRandomSkinColor()
+    {
+        Color[] skinTones = new Color[]
+        {
+            new Color(0.98f, 0.8f, 0.6f),
+            new Color(0.9f, 0.7f, 0.5f),
+            new Color(0.75f, 0.55f, 0.35f),
+            new Color(0.6f, 0.4f, 0.25f),
+            new Color(0.4f, 0.25f, 0.15f)
+        };
+        return skinTones[Random.Range(0, skinTones.Length)];
+    }
+
+    private Color ShiftHue(Color original, float shiftAmount)
+    {
+        Color.RGBToHSV(original, out float h, out float s, out float v);
+        h = Mathf.Repeat(h + shiftAmount, 1f);
+        return Color.HSVToRGB(h, s, v);
     }
 }

@@ -12,9 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebd70e5c547e024dbba8ba8a6404c36, type: 3}
   m_Name: TV Anchor Advisor
   m_EditorClassIdentifier: 
-  staffName: TV Anchor Advisor
   role: 1
+  staffName: TV Anchor Advisor
+  description: Charismatic on TV, mediocre strategist.
   stat1: 5
   skill: 3
   cost: 3
-  description: Charismatic on TV, mediocre strategist.
+  mannequinPrefab: {fileID: 1566031561137990389, guid: c597b5b8094492d4282b28993aaf8980, type: 3}
+  shirtOptions: []
+  hatOptions: []
+  misc1Options: []
+  misc2Options: []
+  selectedShirt: {fileID: 0}
+  selectedHat: {fileID: 0}
+  selectedMisc1: {fileID: 0}
+  selectedMisc2: {fileID: 0}
+  assignedSkin: {r: 0.75, g: 0.55, b: 0.35, a: 1}
+  assignedShirt: {r: 0.85973024, g: 0.5005093, b: 0.29597798, a: 1}
+  assignedHat: {r: 0.85973024, g: 0.29597795, b: 0.4196348, a: 1}
+  assignedMisc1: {r: 0.29597795, g: 0.85973024, b: 0.36097816, a: 1}
+  assignedMisc2: {r: 0.29597795, g: 0.8488644, b: 0.85973024, a: 1}
