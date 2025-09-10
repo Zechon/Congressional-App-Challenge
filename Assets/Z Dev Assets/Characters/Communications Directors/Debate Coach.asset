@@ -19,14 +19,30 @@ MonoBehaviour:
   skill: 5
   cost: 5
   mannequinPrefab: {fileID: 1566031561137990389, guid: c597b5b8094492d4282b28993aaf8980, type: 3}
-  shirtOptions: []
-  hatOptions: []
-  misc1Options: []
-  misc2Options: []
-  selectedShirt: {fileID: 0}
-  selectedHat: {fileID: 0}
-  selectedMisc1: {fileID: 0}
-  selectedMisc2: {fileID: 0}
+  shirtOptions:
+  - {fileID: 1748900784, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: -1112217813, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: -1112217813, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  hatOptions:
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 233035105, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 233035105, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1223555096, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  misc1Options:
+  - {fileID: -1085292374, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 273027540, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: -973311342, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 233035105, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 233035105, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  misc2Options:
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: -72624351, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedShirt: {fileID: -1112217813, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedHat: {fileID: 233035105, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedMisc1: {fileID: 273027540, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedMisc2: {fileID: -72624351, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
   assignedSkin: {r: 0.98, g: 0.8, b: 0.6, a: 1}
   assignedShirt: {r: 0.8067705, g: 0.166235, b: 0.21474846, a: 1}
   assignedHat: {r: 0.8067705, g: 0.21021529, b: 0.16623504, a: 1}

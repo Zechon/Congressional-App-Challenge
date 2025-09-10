@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 public class CandidateCarousel : MonoBehaviour
 {
@@ -12,20 +13,24 @@ public class CandidateCarousel : MonoBehaviour
     public float slideDuration = 0.5f;
     public float spacing = 6f;
     public float fadeDuration = 0.3f;
+    public float scrollCooldown = 0.6f; // prevent spam
 
     [Header("Candidate Settings")]
     public float candidateScale = 2f;
 
     [Header("Stats Display")]
-    public Text nameText;
-    public Text descriptionText;
-    public Text stat1Text;
-    public Text skillText;
-    public Text costText;
+    public TMP_Text nameText;
+    public TMP_Text descriptionText;
+    public TMP_Text stat1Text;
+    public TMP_Text skillText;
+    public TMP_Text costText;
+    public TMP_Text cateText;
 
     private List<StaffData> candidateDataList = new List<StaffData>();
-    private List<GameObject> activeCandidates = new List<GameObject>(); // only current + previous/next
+    private List<GameObject> activeCandidates = new List<GameObject>();
     private int currentIndex = 0;
+
+    private bool isOnCooldown = false;
 
     void Start()
     {
@@ -50,17 +55,19 @@ public class CandidateCarousel : MonoBehaviour
 
     private void SpawnInitialCandidates()
     {
-        // Clear previous
         foreach (var obj in activeCandidates)
             Destroy(obj);
         activeCandidates.Clear();
 
-        // Spawn current candidate
+        // Spawn the first candidate at center
         SpawnCandidateAtIndex(currentIndex, Vector3.zero, 1f);
 
-        // Spawn next candidate just offscreen to the right
+        // Spawn next one just offscreen
         int nextIndex = (currentIndex + 1) % candidateDataList.Count;
         SpawnCandidateAtIndex(nextIndex, new Vector3(spacing, 0, 0), 0f);
+
+        // Display stats for the first one
+        UpdateStatsDisplay(candidateDataList[currentIndex]);
     }
 
     private GameObject SpawnCandidateAtIndex(int index, Vector3 localPos, float alpha)
@@ -73,6 +80,7 @@ public class CandidateCarousel : MonoBehaviour
         CandidateGenerator gen = candidate.GetComponent<CandidateGenerator>();
         gen.SetupCandidate(data);
 
+        // Add/ensure a CanvasGroup for whole-candidate fading
         CanvasGroup cg = candidate.GetComponent<CanvasGroup>();
         if (cg == null) cg = candidate.AddComponent<CanvasGroup>();
         cg.alpha = alpha;
@@ -83,6 +91,8 @@ public class CandidateCarousel : MonoBehaviour
 
     void Update()
     {
+        if (isOnCooldown) return; // ignore input while cooldown is active
+
         if (Input.GetKeyDown(KeyCode.RightArrow))
             NextCandidate();
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -107,39 +117,68 @@ public class CandidateCarousel : MonoBehaviour
 
     private void SlideToCandidate(int newIndex, int direction)
     {
-        // direction: 1 = right scroll (next), -1 = left scroll (previous)
+        if (newIndex == currentIndex) return;
+
+        StartCoroutine(CooldownRoutine());
+
         StaffData newData = candidateDataList[newIndex];
 
-        // Spawn the incoming candidate
         Vector3 startOffset = new Vector3(direction * spacing, 0, 0);
         GameObject newCandidate = SpawnCandidateAtIndex(newIndex, startOffset, 0f);
 
-        // Animate old candidate out
-        GameObject oldCandidate = activeCandidates[0];
-        oldCandidate.GetComponent<CanvasGroup>().DOFade(0f, fadeDuration);
+        CanvasGroup oldCg = activeCandidates[0].GetComponent<CanvasGroup>();
+        CanvasGroup newCg = newCandidate.GetComponent<CanvasGroup>();
 
-        // Animate new candidate in
-        newCandidate.GetComponent<CanvasGroup>().DOFade(1f, fadeDuration);
-        oldCandidate.transform.DOLocalMove(-startOffset, slideDuration).SetEase(Ease.OutBack);
+        oldCg.DOFade(0f, fadeDuration);
+        newCg.DOFade(1f, fadeDuration);
+
+        activeCandidates[0].transform.DOLocalMove(-startOffset, slideDuration).SetEase(Ease.OutBack);
         newCandidate.transform.DOLocalMove(Vector3.zero, slideDuration).SetEase(Ease.OutBack);
 
-        // Update activeCandidates
-        Destroy(oldCandidate, slideDuration + 0.05f);
+        Destroy(activeCandidates[0], slideDuration + 0.05f);
         activeCandidates.Clear();
         activeCandidates.Add(newCandidate);
 
-        // Update stats display
         UpdateStatsDisplay(newData);
 
         currentIndex = newIndex;
+
+        // --- New: refresh selection visuals ---
+        CandidateSelectionManager selectionMgr = FindObjectOfType<CandidateSelectionManager>();
+        if (selectionMgr != null)
+            selectionMgr.UpdateCurrentCandidateVisuals();
+    }
+
+    private IEnumerator CooldownRoutine()
+    {
+        isOnCooldown = true;
+        yield return new WaitForSeconds(scrollCooldown);
+        isOnCooldown = false;
     }
 
     private void UpdateStatsDisplay(StaffData data)
     {
+        if (cateText) cateText.text = data.role.ToString();
         if (nameText) nameText.text = data.staffName;
         if (descriptionText) descriptionText.text = data.description;
         if (stat1Text) stat1Text.text = $"Stat1: {data.stat1}";
         if (skillText) skillText.text = $"Skill: {data.skill}";
         if (costText) costText.text = $"Cost: {data.cost}";
+    }
+    public StaffData GetCurrentCandidateData()
+    {
+        if (candidateDataList.Count == 0) return null;
+        return candidateDataList[currentIndex];
+    }
+
+    public GameObject GetCurrentCandidateObject()
+    {
+        if (activeCandidates.Count == 0) return null;
+        return activeCandidates[0];
+    }
+    public RectTransform GetCurrentCandidateRect()
+    {
+        if (activeCandidates.Count == 0) return null;
+        return activeCandidates[0].GetComponent<RectTransform>();
     }
 }

@@ -27,6 +27,7 @@ public class StaffSelector : MonoBehaviour
     public Dictionary<CampaignRole, List<StaffData>> GetStaffChoices(int countPerRole = 3)
     {
         Dictionary<CampaignRole, List<StaffData>> choices = new Dictionary<CampaignRole, List<StaffData>>();
+        HashSet<StaffData> selectedStaffGlobal = new HashSet<StaffData>(); // track all picked staff
 
         bool valid = false;
         int safetyCounter = 0;
@@ -35,35 +36,42 @@ public class StaffSelector : MonoBehaviour
         {
             safetyCounter++;
             choices.Clear();
+            selectedStaffGlobal.Clear();
 
-            // Step 1: Randomly select 3 staff per role
+            // Step 1: Randomly select staff per role without duplicates globally
             foreach (CampaignRole role in System.Enum.GetValues(typeof(CampaignRole)))
             {
-                List<StaffData> pool = allStaff.Where(s => s.role == role).ToList();
-                List<StaffData> randomChoices = pool.OrderBy(x => Random.value).Take(countPerRole).ToList();
+                List<StaffData> pool = allStaff.Where(s => s.role == role && !selectedStaffGlobal.Contains(s)).ToList();
+                List<StaffData> randomChoices = new List<StaffData>();
+
+                int picks = Mathf.Min(countPerRole, pool.Count);
+                for (int i = 0; i < picks; i++)
+                {
+                    int index = Random.Range(0, pool.Count);
+                    randomChoices.Add(pool[index]);
+                    selectedStaffGlobal.Add(pool[index]); // mark globally as picked
+                    pool.RemoveAt(index); // remove to prevent picking again in this role
+                }
 
                 choices[role] = randomChoices;
-
-                // Debug
-                //string roleList = string.Join(", ", randomChoices.Select(s => $"{s.staffName} (Cost: {s.cost}, Skill: {s.skill})"));
-                //Debug.Log($"{role} choices: {roleList}");
             }
 
-            // Step 2: Inject a guaranteed or chance-based level 5 if enabled
+            // Step 2: Inject guaranteed or chance-based level 5
             if (guaranteeLevel5 || Random.value < chanceOfLevel5)
             {
-                // Pick a random role to inject into
-                CampaignRole targetRole = (CampaignRole)System.Enum.GetValues(typeof(CampaignRole)).GetValue(Random.Range(0, 3));
+                CampaignRole targetRole = (CampaignRole)System.Enum.GetValues(typeof(CampaignRole))
+                                            .GetValue(Random.Range(0, System.Enum.GetValues(typeof(CampaignRole)).Length));
 
-                // Find all level 5 staff in that role
-                var level5Pool = allStaff.Where(s => s.role == targetRole && s.skill == 5).ToList();
+                var level5Pool = allStaff.Where(s => s.role == targetRole && s.skill == 5 && !selectedStaffGlobal.Contains(s)).ToList();
 
                 if (level5Pool.Count > 0)
                 {
-                    // Replace one of the existing random choices with a level 5 staffer
                     int replaceIndex = Random.Range(0, choices[targetRole].Count);
                     var injected = level5Pool[Random.Range(0, level5Pool.Count)];
+
+                    selectedStaffGlobal.Remove(choices[targetRole][replaceIndex]); // remove old pick from global set
                     choices[targetRole][replaceIndex] = injected;
+                    selectedStaffGlobal.Add(injected);
 
                     Debug.Log($"⭐ Injected guaranteed Level 5 into {targetRole}: {injected.staffName}");
                 }
@@ -91,7 +99,7 @@ public class StaffSelector : MonoBehaviour
             if (validCombos.Count > 0)
             {
                 valid = true;
-                Debug.Log($"✅ Found {validCombos.Count} valid combo(s) in the 8–10 range:");
+                Debug.Log($"Found {validCombos.Count} valid combo(s) in the 8–10 range:");
             }
         }
 
@@ -100,5 +108,6 @@ public class StaffSelector : MonoBehaviour
 
         return choices;
     }
+
 
 }
