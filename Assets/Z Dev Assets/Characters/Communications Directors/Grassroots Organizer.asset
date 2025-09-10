@@ -19,14 +19,27 @@ MonoBehaviour:
   skill: 2
   cost: 2
   mannequinPrefab: {fileID: 1566031561137990389, guid: c597b5b8094492d4282b28993aaf8980, type: 3}
-  shirtOptions: []
-  hatOptions: []
-  misc1Options: []
-  misc2Options: []
-  selectedShirt: {fileID: 0}
-  selectedHat: {fileID: 0}
-  selectedMisc1: {fileID: 0}
-  selectedMisc2: {fileID: 0}
+  shirtOptions:
+  - {fileID: 1218294979, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 96782756, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1748900784, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  hatOptions:
+  - {fileID: 1223555096, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  misc1Options:
+  - {fileID: -1085292374, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 273027540, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: -973311342, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: -1085292374, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  misc2Options:
+  - {fileID: 1581186270, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 142181998, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: -72624351, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: -72624351, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedShirt: {fileID: 1218294979, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedHat: {fileID: 1223555096, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedMisc1: {fileID: 273027540, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedMisc2: {fileID: 1581186270, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
   assignedSkin: {r: 0.98, g: 0.8, b: 0.6, a: 1}
   assignedShirt: {r: 0.96415544, g: 0.8438124, b: 0.31399295, a: 1}
   assignedHat: {r: 0.96415544, g: 0.5189148, b: 0.313993, a: 1}
