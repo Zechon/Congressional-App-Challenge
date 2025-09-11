@@ -12,9 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebd70e5c547e024dbba8ba8a6404c36, type: 3}
   m_Name: Pop Culture Activist
   m_EditorClassIdentifier: 
-  staffName: Pop Culture Activist
   role: 2
+  staffName: Pop Culture Activist
+  description: Charismatic and trendy; draws crowds, but their campaigns lack follow-through.
   stat1: 5
   skill: 3
   cost: 3
-  description: Charismatic and trendy; draws crowds, but their campaigns lack follow-through.
+  mannequinPrefab: {fileID: 1566031561137990389, guid: c597b5b8094492d4282b28993aaf8980, type: 3}
+  shirtOptions:
+  - {fileID: -1112217813, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1218294979, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  hatOptions:
+  - {fileID: 1223555096, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1347098889, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  misc1Options:
+  - {fileID: 1457305057, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: -973311342, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  misc2Options:
+  - {fileID: -72624351, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedShirt: {fileID: -1112217813, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedHat: {fileID: 1347098889, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedMisc1: {fileID: 1457305057, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedMisc2: {fileID: -72624351, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  assignedSkin: {r: 0.98, g: 0.8, b: 0.6, a: 1}
+  assignedShirt: {r: 0.87005574, g: 0.64474404, b: 0.107415624, a: 1}
+  assignedHat: {r: 0.87005574, g: 0.391126, b: 0.107415624, a: 1}
+  assignedMisc1: {r: 0.107415624, g: 0.87005574, b: 0.28223848, a: 1}
+  assignedMisc2: {r: 0.107415624, g: 0.20457064, b: 0.87005574, a: 1}
+  tempShirt: {fileID: -1112217813, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  tempHat: {fileID: 1347098889, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  tempMisc1: {fileID: 1457305057, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  tempMisc2: {fileID: -72624351, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  tempSkin: {r: 0.98, g: 0.8, b: 0.6, a: 1}
+  tempShirtColor: {r: 0.87005574, g: 0.64474404, b: 0.107415624, a: 1}
+  tempHatColor: {r: 0.87005574, g: 0.391126, b: 0.107415624, a: 1}
+  tempMisc1Color: {r: 0.107415624, g: 0.87005574, b: 0.28223848, a: 1}
+  tempMisc2Color: {r: 0.107415624, g: 0.20457064, b: 0.87005574, a: 1}
+  hasTempLook: 1

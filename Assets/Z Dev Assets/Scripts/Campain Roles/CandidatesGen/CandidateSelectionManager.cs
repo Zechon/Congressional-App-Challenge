@@ -18,20 +18,15 @@ public class CandidateSelectionManager : MonoBehaviour
     public int playerBudget = 10;
 
     [Header("Visual Feedback")]
-    public GameObject selectionHighlightPrefab;
-    public Transform checkmark;
-    public float highlightMoveDuration = 0.3f;
+    public float checkFadeDuration = 0.3f;
 
     private Dictionary<CampaignRole, StaffData> selectedCandidates = new Dictionary<CampaignRole, StaffData>();
-    private Dictionary<CampaignRole, GameObject> selectedHighlights = new Dictionary<CampaignRole, GameObject>();
+    private int totalSpent = 0;
 
     void Start()
     {
         selectButton.onClick.AddListener(OnSelectPressed);
         confirmButton.onClick.AddListener(OnConfirmPressed);
-
-        if (checkmark != null)
-            checkmark.gameObject.SetActive(false);
 
         UpdateBudgetUI();
     }
@@ -39,52 +34,83 @@ public class CandidateSelectionManager : MonoBehaviour
     private void OnSelectPressed()
     {
         StaffData currentCandidate = carousel.GetCurrentCandidateData();
-        if (currentCandidate == null) return;
+        GameObject currentObj = carousel.GetCurrentCandidateObject();
+        if (currentCandidate == null || currentObj == null) return;
 
         CampaignRole role = currentCandidate.role;
 
-        // --- Highlight handling ---
-        if (selectedHighlights.ContainsKey(role) && selectedHighlights[role] != null)
+        // Refund previous selection if swapping
+        if (selectedCandidates.TryGetValue(role, out StaffData oldSelected) && oldSelected != currentCandidate)
         {
-            GameObject highlight = selectedHighlights[role];
-            highlight.transform.SetParent(carousel.GetCurrentCandidateObject().transform);
-            highlight.transform.DOLocalMove(Vector3.zero, highlightMoveDuration).SetEase(Ease.OutCubic);
-        }
-        else
-        {
-            GameObject highlight = Instantiate(selectionHighlightPrefab, carousel.GetCurrentCandidateObject().transform);
-            highlight.transform.localPosition = Vector3.zero;
-            highlight.transform.SetAsFirstSibling();
-            selectedHighlights[role] = highlight;
+            totalSpent -= oldSelected.cost;
+            SetCheckmark(oldSelected, false);
+            selectedCandidates.Remove(role);
         }
 
-        // --- Update selection ---
+        // Finalize look for selected candidate (saves to StaffData)
+        CandidateGenerator gen = currentObj.GetComponent<CandidateGenerator>();
+        if (gen != null)
+            gen.SetupCandidate(currentCandidate);
+
+        // Update selection
         selectedCandidates[role] = currentCandidate;
+        totalSpent += currentCandidate.cost;
 
-        // --- Move the checkmark ---
-        MoveCheckmarkToCurrentCandidate();
+        SetCheckmark(currentCandidate, true, currentObj);
 
         UpdateBudgetUI();
     }
 
-    public void UpdateCurrentCandidateVisuals()
+    public void OnCandidateSpawned(GameObject candidateObj, StaffData data)
     {
-        MoveCheckmarkToCurrentCandidate();
+        if (candidateObj == null || data == null) return;
+
+        // Enable check if this candidate is selected
+        bool isSelected = selectedCandidates.TryGetValue(data.role, out StaffData sel) && sel == data;
+        SetCheckmark(data, isSelected, candidateObj);
+    }
+
+    private void SetCheckmark(StaffData data, bool enable, GameObject candidateObj = null)
+    {
+        GameObject obj = candidateObj ?? carousel.GetCurrentCandidateObject();
+        if (obj == null) return;
+
+        Image checkImage = null;
+        foreach (Transform t in obj.GetComponentsInChildren<Transform>(true))
+        {
+            if (t.CompareTag("candChk"))
+            {
+                checkImage = t.GetComponent<Image>();
+                break;
+            }
+        }
+
+        if (checkImage == null) return;
+
+        checkImage.DOKill();
+
+        if (enable)
+        {
+            checkImage.enabled = true;
+            checkImage.color = new Color(checkImage.color.r, checkImage.color.g, checkImage.color.b, 0f);
+            checkImage.DOFade(1f, checkFadeDuration).SetEase(Ease.OutBack);
+        }
+        else
+        {
+            checkImage.DOFade(0f, 0f).OnComplete(() => checkImage.enabled = false);
+        }
     }
 
     private void OnConfirmPressed()
     {
-        if (selectedCandidates.Count < System.Enum.GetValues(typeof(CampaignRole)).Length)
+        int roleCount = System.Enum.GetValues(typeof(CampaignRole)).Length;
+        if (selectedCandidates.Count < roleCount)
         {
             Debug.LogWarning("You must select one candidate per role before confirming!");
             return;
         }
 
-        int totalCost = 0;
-        foreach (var candidate in selectedCandidates.Values)
-            totalCost += candidate.cost;
-
-        if (totalCost > playerBudget)
+        if (totalSpent > playerBudget)
         {
             Debug.LogWarning("Not enough budget!");
             return;
@@ -99,52 +125,12 @@ public class CandidateSelectionManager : MonoBehaviour
 
     private void UpdateBudgetUI()
     {
-        int totalCost = 0;
-        foreach (var candidate in selectedCandidates.Values)
-            totalCost += candidate.cost;
-
-        budgetText.text = $"Budget: {playerBudget - totalCost}/{playerBudget}";
+        if (budgetText != null)
+            budgetText.text = $"Budget: {playerBudget - totalSpent}/{playerBudget}";
     }
 
     private void SaveSelectedCandidates()
     {
         GameData.HiredStaff = new List<StaffData>(selectedCandidates.Values);
     }
-
-    private void MoveCheckmarkToCurrentCandidate()
-    {
-        if (checkmark == null) return;
-
-        StaffData currentCandidate = carousel.GetCurrentCandidateData();
-        if (currentCandidate == null)
-        {
-            checkmark.gameObject.SetActive(false);
-            return;
-        }
-
-        // Show checkmark only if this candidate is selected
-        bool isSelected = selectedCandidates.ContainsValue(currentCandidate);
-
-        checkmark.gameObject.SetActive(isSelected);
-
-        if (!isSelected) return;
-
-        // Find the anchor in the candidate prefab
-        Transform anchor = null;
-        foreach (Transform t in carousel.GetCurrentCandidateObject().GetComponentsInChildren<Transform>())
-        {
-            if (t.CompareTag("CheckmarkAnchor"))
-            {
-                anchor = t;
-                break;
-            }
-        }
-        if (anchor == null) anchor = carousel.GetCurrentCandidateObject().transform;
-
-        // Tween checkmark to anchor
-        checkmark.SetParent(anchor); // re-parent instantly
-        checkmark.DOLocalMove(Vector3.zero, 0.25f).SetEase(Ease.OutCubic); // smooth move
-        checkmark.DOLocalRotate(Vector3.zero, 0.25f).SetEase(Ease.OutCubic); // optional: rotate smoothly
-    }
-
 }

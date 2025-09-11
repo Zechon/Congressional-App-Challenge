@@ -12,9 +12,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebd70e5c547e024dbba8ba8a6404c36, type: 3}
   m_Name: College Volunteer Lead
   m_EditorClassIdentifier: 
-  staffName: College Volunteer Lead
   role: 2
+  staffName: College Volunteer Lead
+  description: Cheap enthusiasm, untested management.
   stat1: 2
   skill: 3
   cost: 3
-  description: Cheap enthusiasm, untested management.
+  mannequinPrefab: {fileID: 1566031561137990389, guid: c597b5b8094492d4282b28993aaf8980, type: 3}
+  shirtOptions:
+  - {fileID: -1112217813, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 96782756, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1748900784, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1218294979, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  hatOptions:
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1223555096, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  misc1Options:
+  - {fileID: 273027540, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: -973311342, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  misc2Options:
+  - {fileID: -72624351, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedShirt: {fileID: 1218294979, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedHat: {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedMisc1: {fileID: 273027540, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedMisc2: {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  assignedSkin: {r: 0.98, g: 0.8, b: 0.6, a: 1}
+  assignedShirt: {r: 0.4127576, g: 0.77702874, b: 0.2271712, a: 1}
+  assignedHat: {r: 0.3998628, g: 0.77702874, b: 0.2271712, a: 1}
+  assignedMisc1: {r: 0.2271712, g: 0.32967496, b: 0.77702874, a: 1}
+  assignedMisc2: {r: 0.5231236, g: 0.2271712, b: 0.77702874, a: 1}
+  tempShirt: {fileID: 0}
+  tempHat: {fileID: 0}
+  tempMisc1: {fileID: 0}
+  tempMisc2: {fileID: 0}
+  tempSkin: {r: 0, g: 0, b: 0, a: 0}
+  tempShirtColor: {r: 0, g: 0, b: 0, a: 0}
+  tempHatColor: {r: 0, g: 0, b: 0, a: 0}
+  tempMisc1Color: {r: 0, g: 0, b: 0, a: 0}
+  tempMisc2Color: {r: 0, g: 0, b: 0, a: 0}
+  hasTempLook: 0
