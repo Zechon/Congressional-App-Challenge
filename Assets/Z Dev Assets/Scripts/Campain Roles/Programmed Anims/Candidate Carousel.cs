@@ -13,7 +13,7 @@ public class CandidateCarousel : MonoBehaviour
     public float slideDuration = 0.5f;
     public float spacing = 6f;
     public float fadeDuration = 0.3f;
-    public float scrollCooldown = 0.6f; // prevent spam
+    public float scrollCooldown = 0.6f;
 
     [Header("Candidate Settings")]
     public float candidateScale = 2f;
@@ -32,8 +32,12 @@ public class CandidateCarousel : MonoBehaviour
 
     private bool isOnCooldown = false;
 
+    private CandidateSelectionManager selectionMgr;
+
     void Start()
     {
+        selectionMgr = FindObjectOfType<CandidateSelectionManager>();
+
         StaffSelector selector = FindObjectOfType<StaffSelector>();
         if (selector != null)
         {
@@ -55,20 +59,20 @@ public class CandidateCarousel : MonoBehaviour
 
     private void SpawnInitialCandidates()
     {
+        // Reset temp looks so we don't carry over colors from last run
+        foreach (var candidate in candidateDataList)
+            candidate.ResetTempLook();
+
         foreach (var obj in activeCandidates)
             Destroy(obj);
         activeCandidates.Clear();
 
-        // Spawn the first candidate at center
-        SpawnCandidateAtIndex(currentIndex, Vector3.zero, 1f);
+        GameObject first = SpawnCandidateAtIndex(currentIndex, Vector3.zero, 1f);
+        GameObject next = SpawnCandidateAtIndex((currentIndex + 1) % candidateDataList.Count, new Vector3(spacing, 0, 0), 0f);
 
-        // Spawn next one just offscreen
-        int nextIndex = (currentIndex + 1) % candidateDataList.Count;
-        SpawnCandidateAtIndex(nextIndex, new Vector3(spacing, 0, 0), 0f);
-
-        // Display stats for the first one
         UpdateStatsDisplay(candidateDataList[currentIndex]);
     }
+
 
     private GameObject SpawnCandidateAtIndex(int index, Vector3 localPos, float alpha)
     {
@@ -78,20 +82,24 @@ public class CandidateCarousel : MonoBehaviour
         candidate.transform.localScale = Vector3.one * candidateScale;
 
         CandidateGenerator gen = candidate.GetComponent<CandidateGenerator>();
-        gen.SetupCandidate(data);
+        gen.PreviewCandidate(data); // preview using temp look
 
-        // Add/ensure a CanvasGroup for whole-candidate fading
         CanvasGroup cg = candidate.GetComponent<CanvasGroup>();
         if (cg == null) cg = candidate.AddComponent<CanvasGroup>();
         cg.alpha = alpha;
 
         activeCandidates.Add(candidate);
+
+        if (selectionMgr != null)
+            selectionMgr.OnCandidateSpawned(candidate, data);
+
         return candidate;
     }
 
+
     void Update()
     {
-        if (isOnCooldown) return; // ignore input while cooldown is active
+        if (isOnCooldown) return;
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
             NextCandidate();
@@ -126,6 +134,8 @@ public class CandidateCarousel : MonoBehaviour
         Vector3 startOffset = new Vector3(direction * spacing, 0, 0);
         GameObject newCandidate = SpawnCandidateAtIndex(newIndex, startOffset, 0f);
 
+        if (selectionMgr != null) selectionMgr.OnCandidateSpawned(newCandidate, newData);
+
         CanvasGroup oldCg = activeCandidates[0].GetComponent<CanvasGroup>();
         CanvasGroup newCg = newCandidate.GetComponent<CanvasGroup>();
 
@@ -142,11 +152,6 @@ public class CandidateCarousel : MonoBehaviour
         UpdateStatsDisplay(newData);
 
         currentIndex = newIndex;
-
-        // --- New: refresh selection visuals ---
-        CandidateSelectionManager selectionMgr = FindObjectOfType<CandidateSelectionManager>();
-        if (selectionMgr != null)
-            selectionMgr.UpdateCurrentCandidateVisuals();
     }
 
     private IEnumerator CooldownRoutine()
