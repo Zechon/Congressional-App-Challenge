@@ -21,12 +21,18 @@ MonoBehaviour:
   mannequinPrefab: {fileID: 1566031561137990389, guid: c597b5b8094492d4282b28993aaf8980, type: 3}
   shirtOptions:
   - {fileID: 96782756, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1748900784, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
   hatOptions:
   - {fileID: 1223555096, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
   misc1Options:
   - {fileID: 418883748, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
   misc2Options:
   - {fileID: 1457305057, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 207757875, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 233035105, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
   selectedShirt: {fileID: 96782756, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
   selectedHat: {fileID: 1223555096, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
   selectedMisc1: {fileID: 1457305057, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
@@ -36,3 +42,13 @@ MonoBehaviour:
   assignedHat: {r: 0.29320934, g: 0.8895076, b: 0.72759694, a: 1}
   assignedMisc1: {r: 0.62129915, g: 0.29320934, b: 0.8895076, a: 1}
   assignedMisc2: {r: 0.8895076, g: 0.29320934, b: 0.63202095, a: 1}
+  tempShirt: {fileID: 96782756, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  tempHat: {fileID: 1223555096, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  tempMisc1: {fileID: 1457305057, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  tempMisc2: {fileID: 418883748, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  tempSkin: {r: 0.75, g: 0.55, b: 0.35, a: 1}
+  tempShirtColor: {r: 0.29320934, g: 0.8895076, b: 0.503556, a: 1}
+  tempHatColor: {r: 0.29320934, g: 0.8895076, b: 0.72759694, a: 1}
+  tempMisc1Color: {r: 0.62129915, g: 0.29320934, b: 0.8895076, a: 1}
+  tempMisc2Color: {r: 0.8895076, g: 0.29320934, b: 0.63202095, a: 1}
+  hasTempLook: 1

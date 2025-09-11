@@ -12,9 +12,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebd70e5c547e024dbba8ba8a6404c36, type: 3}
   m_Name: Union Connector
   m_EditorClassIdentifier: 
-  staffName: Union Connector
   role: 2
+  staffName: Union Connector
+  description: Mobilizes unions well, costs a lot.
   stat1: 4
   skill: 4
   cost: 4
-  description: Mobilizes unions well, costs a lot.
+  mannequinPrefab: {fileID: 1566031561137990389, guid: c597b5b8094492d4282b28993aaf8980, type: 3}
+  shirtOptions:
+  - {fileID: 1748900784, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  hatOptions:
+  - {fileID: 1223555096, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  misc1Options:
+  - {fileID: 1457305057, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 207757875, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 273027540, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  misc2Options:
+  - {fileID: -72624351, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1206108686, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedShirt: {fileID: 0}
+  selectedHat: {fileID: 0}
+  selectedMisc1: {fileID: 0}
+  selectedMisc2: {fileID: 0}
+  assignedSkin: {r: 0, g: 0, b: 0, a: 0}
+  assignedShirt: {r: 0, g: 0, b: 0, a: 0}
+  assignedHat: {r: 0, g: 0, b: 0, a: 0}
+  assignedMisc1: {r: 0, g: 0, b: 0, a: 0}
+  assignedMisc2: {r: 0, g: 0, b: 0, a: 0}
+  tempShirt: {fileID: 0}
+  tempHat: {fileID: 0}
+  tempMisc1: {fileID: 0}
+  tempMisc2: {fileID: 0}
+  tempSkin: {r: 0, g: 0, b: 0, a: 0}
+  tempShirtColor: {r: 0, g: 0, b: 0, a: 0}
+  tempHatColor: {r: 0, g: 0, b: 0, a: 0}
+  tempMisc1Color: {r: 0, g: 0, b: 0, a: 0}
+  tempMisc2Color: {r: 0, g: 0, b: 0, a: 0}
+  hasTempLook: 0
