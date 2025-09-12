@@ -45,11 +45,6 @@ public class CandidateCarousel : MonoBehaviour
 
             foreach (var kvp in staffDict)
                 candidateDataList.AddRange(kvp.Value);
-
-            if (candidateDataList.Count > 0)
-                SpawnInitialCandidates();
-            else
-                Debug.LogWarning("No candidates available for the carousel!");
         }
         else
         {
@@ -57,9 +52,16 @@ public class CandidateCarousel : MonoBehaviour
         }
     }
 
+    public void InitializeCarousel()
+    {
+        if (candidateDataList.Count > 0)
+            SpawnInitialCandidates();
+        else
+            Debug.LogWarning("No candidates available for the carousel!");
+    }
+
     private void SpawnInitialCandidates()
     {
-        // Reset temp looks so we don't carry over colors from last run
         foreach (var candidate in candidateDataList)
             candidate.ResetTempLook();
 
@@ -73,7 +75,6 @@ public class CandidateCarousel : MonoBehaviour
         UpdateStatsDisplay(candidateDataList[currentIndex]);
     }
 
-
     private GameObject SpawnCandidateAtIndex(int index, Vector3 localPos, float alpha)
     {
         StaffData data = candidateDataList[index];
@@ -82,7 +83,7 @@ public class CandidateCarousel : MonoBehaviour
         candidate.transform.localScale = Vector3.one * candidateScale;
 
         CandidateGenerator gen = candidate.GetComponent<CandidateGenerator>();
-        gen.PreviewCandidate(data); // preview using temp look
+        gen.PreviewCandidate(data);
 
         CanvasGroup cg = candidate.GetComponent<CanvasGroup>();
         if (cg == null) cg = candidate.AddComponent<CanvasGroup>();
@@ -95,7 +96,6 @@ public class CandidateCarousel : MonoBehaviour
 
         return candidate;
     }
-
 
     void Update()
     {
