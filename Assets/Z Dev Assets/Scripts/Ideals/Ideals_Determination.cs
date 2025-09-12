@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
+using UnityEngine.Rendering;
 
 public class Ideal_Determination : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class Ideal_Determination : MonoBehaviour
     [SerializeField] private float buttonTimerLimit = 2f;
     [SerializeField] private string NextSceneName = "";
     private int choicesRemaining = 4;
-    private int unweighedIdeals = 0;
+    public int unweighedIdeals = 0;
     public int weighedIdeals = 0;
     public bool OrangeLeaning = false;
 
@@ -26,9 +28,13 @@ public class Ideal_Determination : MonoBehaviour
     [Header("Secondary Screen Components")]
     [SerializeField] private GameObject prtyChoose;
     [SerializeField] private TMP_Text youChose;
+    [SerializeField] private GameObject fadeOverlay;
+    [SerializeField] private float fadeDuration = 0.3f;
 
     void Start()
     {
+        StartCoroutine(FadeIn());
+
         //components
         warning.SetActive(false);
         prtyChoose.SetActive(false);
@@ -40,6 +46,14 @@ public class Ideal_Determination : MonoBehaviour
         OrangeLeaning = false;
         unweighedIdeals = 0;
         choicesRemaining = 4;
+    }
+
+    private IEnumerator FadeIn()
+    {
+        Debug.Log("Hello");
+        fadeOverlay.GetComponent<CanvasGroup>().DOFade(0f, fadeDuration);
+        yield return new WaitForSeconds(fadeDuration);
+        fadeOverlay.SetActive(false);
     }
 
     public void RemainingIdls()
@@ -58,6 +72,7 @@ public class Ideal_Determination : MonoBehaviour
         {
             warnText.text = "You must choose four options.";
             warning.SetActive(true);
+            return;
         }
 
         weighIdls();
@@ -67,6 +82,7 @@ public class Ideal_Determination : MonoBehaviour
             partyBox.SetActive(true);
             if (OrangeLeaning) { partyText.text = "The Orange Party has chosen you with a favor rating of " + weighedIdeals.ToString() + " %."; }
             else { partyText.text = "The Purple Party has chosen you with a favor rating of " + weighedIdeals.ToString() + " %."; }
+            StartCoroutine(FadeOut());
         }
     }
 
@@ -79,7 +95,7 @@ public class Ideal_Determination : MonoBehaviour
                 weighedIdeals = 100;
                 break;
 
-            case -3:
+            case -2:
                 OrangeLeaning = true;
                 weighedIdeals = 75;
                 break;
@@ -89,7 +105,7 @@ public class Ideal_Determination : MonoBehaviour
                 weighedIdeals = 50;
                 break;
 
-            case 3:
+            case 2:
                 OrangeLeaning = false;
                 weighedIdeals = 75;
                 break;
@@ -109,27 +125,45 @@ public class Ideal_Determination : MonoBehaviour
     public void IdlOrngButton()
     {
         OrangeLeaning = true;
-        youChose.enabled = true;
-        youChose.text = "You've chosen Orange!";
-        StartCoroutine(HideAfterDelay());
+        partyBox.SetActive(true);
+        partyText.text = "The Orange Party has chosen you with a favor rating of " + weighedIdeals.ToString() + " %.";
+        StartCoroutine(FadeOut());
     }
 
     public void IdlPrplButton()
     {
         OrangeLeaning = false;
-        youChose.enabled = true;
-        youChose.text = "You've chosen Purple!";
-        StartCoroutine(HideAfterDelay());
+        partyBox.SetActive(true);
+        partyText.text = "The Purple Party has chosen you with a favor rating of " + weighedIdeals.ToString() + " %."; 
+        StartCoroutine(FadeOut());
     }
 
-    private IEnumerator HideAfterDelay()
+    private IEnumerator FadeOut()
     {
-        yield return new WaitForSeconds(buttonTimerLimit);
-        prtyChoose.SetActive(false);
+        yield return new WaitForSeconds(2);
+        fadeOverlay.SetActive(true);
+        fadeOverlay.GetComponent<CanvasGroup>().DOFade(1f, fadeDuration);
+        yield return new WaitForSeconds(fadeDuration);
+        SceneManager.LoadScene(NextSceneName);
 
-        partyBox.SetActive(true);
-        if (OrangeLeaning) { partyText.text = "You have chosen the Orange Party with a favor rating of " + weighedIdeals.ToString() + " %."; }
-        else { partyText.text = "You have chosen the Orange Purple with a favor rating of " + weighedIdeals.ToString() + " %."; }
+        StartCoroutine(LoadSceneFully(NextSceneName));
+    }
+
+    IEnumerator LoadSceneFully(string sceneName)
+    {
+        AsyncOperation op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+        op.allowSceneActivation = false;
+
+        while (op.progress < 0.9f)
+        {
+            yield return null;
+        }
+
+        op.allowSceneActivation = true;
+
+        yield return null;
+
+        Debug.Log("Scene is fully loaded and initialized!");
     }
 
     public void IdlsCont()

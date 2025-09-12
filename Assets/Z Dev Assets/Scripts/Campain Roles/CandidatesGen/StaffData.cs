@@ -53,18 +53,19 @@ public class StaffData : ScriptableObject
 
     public void AssignClothingIfNeeded()
     {
-        if (selectedShirt == null && shirtOptions.Length > 0)
+        if (shirtOptions != null && selectedShirt == null && shirtOptions.Length > 0)
             selectedShirt = shirtOptions[Random.Range(0, shirtOptions.Length)];
 
-        if (selectedMisc1 == null && misc1Options.Length > 0)
+        if (misc1Options != null && selectedMisc1 == null && misc1Options.Length > 0)
             selectedMisc1 = misc1Options[Random.Range(0, misc1Options.Length)];
 
-        if (selectedMisc2 == null && misc2Options.Length > 0)
+        if (misc2Options != null && selectedMisc2 == null && misc2Options.Length > 0)
             selectedMisc2 = misc2Options[Random.Range(0, misc2Options.Length)];
 
-        if (selectedHat == null && hatOptions.Length > 0)
+        if (hatOptions != null && selectedHat == null && hatOptions.Length > 0)
             selectedHat = hatOptions[Random.Range(0, hatOptions.Length)];
     }
+
 
     public void AssignColorsIfNeeded()
     {

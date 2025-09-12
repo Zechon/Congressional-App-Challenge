@@ -3,11 +3,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using System.Collections;
 
 public class CandidateSelectionManager : MonoBehaviour
 {
     [Header("Carousel")]
     public CandidateCarousel carousel;
+    [SerializeField] private GameObject fadeOverlay;
+    [SerializeField] private float fadeDuration = 0.3f;
 
     [Header("UI Buttons")]
     public Button selectButton;
@@ -29,6 +32,24 @@ public class CandidateSelectionManager : MonoBehaviour
         confirmButton.onClick.AddListener(OnConfirmPressed);
 
         UpdateBudgetUI();
+        StartCoroutine(InitializeAfterFadeIn());
+    }
+
+    private IEnumerator InitializeAfterFadeIn()
+    {
+        // Wait one extra frame just to be safe
+        yield return null;
+
+        // Now initialize the carousel
+        if (carousel != null)
+            carousel.InitializeCarousel();
+        else
+            Debug.LogWarning("CandidateCarousel not assigned in CandidateSelectionManager!");
+
+        // Run the fade-in
+        fadeOverlay.GetComponent<CanvasGroup>().DOFade(0f, fadeDuration);
+        yield return new WaitForSeconds(fadeDuration);
+        fadeOverlay.SetActive(false);
     }
 
     private void OnSelectPressed()
@@ -39,7 +60,6 @@ public class CandidateSelectionManager : MonoBehaviour
 
         CampaignRole role = currentCandidate.role;
 
-        // Refund previous selection if swapping
         if (selectedCandidates.TryGetValue(role, out StaffData oldSelected) && oldSelected != currentCandidate)
         {
             totalSpent -= oldSelected.cost;
@@ -47,12 +67,10 @@ public class CandidateSelectionManager : MonoBehaviour
             selectedCandidates.Remove(role);
         }
 
-        // Finalize look for selected candidate (saves to StaffData)
         CandidateGenerator gen = currentObj.GetComponent<CandidateGenerator>();
         if (gen != null)
             gen.SetupCandidate(currentCandidate);
 
-        // Update selection
         selectedCandidates[role] = currentCandidate;
         totalSpent += currentCandidate.cost;
 
@@ -121,6 +139,9 @@ public class CandidateSelectionManager : MonoBehaviour
             Debug.Log($"{candidate.staffName} ({candidate.role})");
 
         SaveSelectedCandidates();
+
+        fadeOverlay.SetActive(true);
+        fadeOverlay.GetComponent<CanvasGroup>().DOFade(1f, fadeDuration);
     }
 
     private void UpdateBudgetUI()
