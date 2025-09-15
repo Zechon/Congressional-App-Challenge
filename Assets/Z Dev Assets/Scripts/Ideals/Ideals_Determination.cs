@@ -12,7 +12,6 @@ using UnityEngine.Rendering;
 public class Ideal_Determination : MonoBehaviour
 {
     [Header("Values")]
-    [SerializeField] private float buttonTimerLimit = 2f;
     [SerializeField] private string NextSceneName = "";
     private int choicesRemaining = 4;
     public int unweighedIdeals = 0;
@@ -140,6 +139,11 @@ public class Ideal_Determination : MonoBehaviour
 
     private IEnumerator FadeOut()
     {
+        GameData.wghdIdeals = weighedIdeals;
+
+        if (OrangeLeaning) { GameData.Party = "Orange"; }
+        else { GameData.Party = "Purple"; }
+
         yield return new WaitForSeconds(2);
         fadeOverlay.SetActive(true);
         fadeOverlay.GetComponent<CanvasGroup>().DOFade(1f, fadeDuration);

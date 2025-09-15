@@ -12,9 +12,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebd70e5c547e024dbba8ba8a6404c36, type: 3}
   m_Name: Accountant Strategist
   m_EditorClassIdentifier: 
-  staffName: Accountant Strategist
   role: 0
+  staffName: Accountant Strategist
+  description: Dry personality, excellent at handling money.
   stat1: 1
   skill: 4
   cost: 4
-  description: Dry personality, excellent at handling money.
+  mannequinPrefab: {fileID: 1566031561137990389, guid: c597b5b8094492d4282b28993aaf8980, type: 3}
+  shirtOptions:
+  - {fileID: -1112217813, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  - {fileID: 1748900784, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  hatOptions:
+  - {fileID: 277294088, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  misc1Options:
+  - {fileID: 207757875, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  misc2Options:
+  - {fileID: 418883748, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedShirt: {fileID: 1748900784, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedHat: {fileID: 277294088, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedMisc1: {fileID: 207757875, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  selectedMisc2: {fileID: 418883748, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  assignedSkin: {r: 0.4, g: 0.25, b: 0.15, a: 1}
+  assignedShirt: {r: 0.5504815, g: 0.28281283, b: 0.49843168, a: 1}
+  assignedHat: {r: 0.49543333, g: 0.25453153, b: 0.33295566, a: 1}
+  assignedMisc1: {r: 0.4477529, g: 0.2469535, b: 0.5280056, a: 1}
+  assignedMisc2: {r: 0.07070321, g: 0.13762037, b: 0.08371566, a: 1}
+  tempShirt: {fileID: 1748900784, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  tempHat: {fileID: 277294088, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  tempMisc1: {fileID: 207757875, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  tempMisc2: {fileID: 418883748, guid: 2366dbe25fa74eb4eab93e63bba444ec, type: 3}
+  tempSkin: {r: 0.4, g: 0.25, b: 0.15, a: 1}
+  tempShirtColor: {r: 0.5504815, g: 0.28281283, b: 0.49843168, a: 1}
+  tempHatColor: {r: 0.49543333, g: 0.25453153, b: 0.33295566, a: 1}
+  tempMisc1Color: {r: 0.4477529, g: 0.2469535, b: 0.5280056, a: 1}
+  tempMisc2Color: {r: 0.07070321, g: 0.13762037, b: 0.08371566, a: 1}
+  hasTempLook: 1

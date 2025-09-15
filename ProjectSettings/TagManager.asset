@@ -9,6 +9,7 @@ TagManager:
   - FieCandidateOP
   - candChk
   - candChkT
+  - State
   layers:
   - Default
   - TransparentFX
