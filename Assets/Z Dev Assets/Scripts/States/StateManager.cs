@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 public class StateManager : MonoBehaviour
@@ -13,12 +15,26 @@ public class StateManager : MonoBehaviour
     public int orangeVT;
     public int purpleVT;
 
+    [Header("Other")]
+    [SerializeField] private string NextSceneName;
+    [SerializeField] private GameObject fadeOverlay;
+    [SerializeField] private float fadeDuration = 0.3f;
+
     void Start()
     {
         states = FindObjectsOfType<StateSetup>();
 
+        StartCoroutine(FadeIn());
+
         SetupStates();
         CountVotes();
+    }
+
+    private IEnumerator FadeIn()
+    {
+        fadeOverlay.GetComponent<CanvasGroup>().DOFade(0f, fadeDuration);
+        yield return new WaitForSeconds(fadeDuration);
+        fadeOverlay.SetActive(false);
     }
 
     private void SetupStates()
@@ -59,15 +75,15 @@ public class StateManager : MonoBehaviour
 
     private void RandomizeStates(int targetOrangeVotes, int targetPurpleVotes)
     {
+        var rng = SeedManager.GetSubRng(1);
+
         int orangeRemaining = targetOrangeVotes;
         int purpleRemaining = targetPurpleVotes;
 
-        // Shuffle states so distribution isn't predictable
         foreach (var state in states.OrderBy(x => Random.value))
         {
-            // Fraction of remaining national pool
-            float orangeRatio = (float)orangeRemaining / (orangeRemaining + purpleRemaining + 1); // +1 avoids div/0
-            float randomFactor = Random.Range(-0.15f, 0.15f);
+            float orangeRatio = (float)orangeRemaining / (orangeRemaining + purpleRemaining + 1);
+            float randomFactor = (float)(rng.NextDouble() * 0.3 - 0.15);
             float finalRatio = Mathf.Clamp01(orangeRatio + randomFactor);
 
             int orangeVotes = Mathf.RoundToInt(state.stateVotes * finalRatio);
@@ -75,7 +91,6 @@ public class StateManager : MonoBehaviour
 
             int purpleVotes = state.stateVotes - orangeVotes;
 
-            // Save as fractions (0..1)
             state.orangePercent = (state.stateVotes > 0) ? (orangeVotes / (float)state.stateVotes) : 0f;
             state.purplePercent = 1f - state.orangePercent;
 
@@ -85,7 +100,6 @@ public class StateManager : MonoBehaviour
             purpleRemaining -= purpleVotes;
         }
 
-        // If rounding left leftover/shortfall in the national pool, patch it deterministically:
         int totalAssignedOrange = states.Sum(s => Mathf.RoundToInt(s.orangePercent * s.stateVotes));
         int nationalTotal = states.Sum(s => s.stateVotes);
         int diff = targetOrangeVotes - totalAssignedOrange;
@@ -110,7 +124,6 @@ public class StateManager : MonoBehaviour
             foreach (var tuple in list.OrderByDescending(x => x.remainder).Take(diff))
             {
                 var s = tuple.state;
-                // increase integer orange votes by 1, then update percent
                 int orangeVotes = Mathf.RoundToInt(s.orangePercent * s.stateVotes) + 1;
                 orangeVotes = Mathf.Clamp(orangeVotes, 0, s.stateVotes);
                 s.orangePercent = orangeVotes / (float)s.stateVotes;
@@ -140,22 +153,19 @@ public class StateManager : MonoBehaviour
 
         int nationalTotal = states.Sum(s => s.stateVotes);
 
-        // First compute per-state integer votes using rounding
         var perStateOrange = new List<int>(states.Length);
         float sumExact = 0f;
         foreach (var s in states)
         {
             float exactOrange = Mathf.Clamp01(s.orangePercent) * s.stateVotes;
             sumExact += exactOrange;
-            perStateOrange.Add(Mathf.FloorToInt(exactOrange)); // floor for now
+            perStateOrange.Add(Mathf.FloorToInt(exactOrange));
         }
 
-        // Largest remainder to match rounded total nearest to sumExact
         int targetOrangeSum = Mathf.RoundToInt(sumExact);
         int currentOrangeSum = perStateOrange.Sum();
         int remainderToAssign = targetOrangeSum - currentOrangeSum;
 
-        // compute remainders
         var remainders = new List<(int idx, float rem)>();
         for (int i = 0; i < states.Length; i++)
         {
@@ -175,7 +185,6 @@ public class StateManager : MonoBehaviour
                 perStateOrange[item.idx] = Mathf.Max(0, perStateOrange[item.idx] - 1);
         }
 
-        // final tally
         for (int i = 0; i < states.Length; i++)
         {
             int orangeForState = Mathf.Clamp(perStateOrange[i], 0, states[i].stateVotes);

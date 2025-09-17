@@ -4,13 +4,12 @@ using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CandidateSelectionManager : MonoBehaviour
 {
     [Header("Carousel")]
     public CandidateCarousel carousel;
-    [SerializeField] private GameObject fadeOverlay;
-    [SerializeField] private float fadeDuration = 0.3f;
 
     [Header("UI Buttons")]
     public Button selectButton;
@@ -25,6 +24,11 @@ public class CandidateSelectionManager : MonoBehaviour
 
     private Dictionary<CampaignRole, StaffData> selectedCandidates = new Dictionary<CampaignRole, StaffData>();
     private int totalSpent = 0;
+
+    [Header("Other")]
+    [SerializeField] private string NextSceneName;
+    [SerializeField] private GameObject fadeOverlay;
+    [SerializeField] private float fadeDuration = 0.3f;
 
     void Start()
     {
@@ -46,7 +50,11 @@ public class CandidateSelectionManager : MonoBehaviour
         else
             Debug.LogWarning("CandidateCarousel not assigned in CandidateSelectionManager!");
 
-        // Run the fade-in
+        StartCoroutine(FadeIn());
+    }
+
+    private IEnumerator FadeIn()
+    {
         fadeOverlay.GetComponent<CanvasGroup>().DOFade(0f, fadeDuration);
         yield return new WaitForSeconds(fadeDuration);
         fadeOverlay.SetActive(false);
@@ -140,8 +148,7 @@ public class CandidateSelectionManager : MonoBehaviour
 
         SaveSelectedCandidates();
 
-        fadeOverlay.SetActive(true);
-        fadeOverlay.GetComponent<CanvasGroup>().DOFade(1f, fadeDuration);
+        StartCoroutine(FadeOut());
     }
 
     private void UpdateBudgetUI()
@@ -153,5 +160,38 @@ public class CandidateSelectionManager : MonoBehaviour
     private void SaveSelectedCandidates()
     {
         GameData.HiredStaff = new List<StaffData>(selectedCandidates.Values);
+    }
+
+    private IEnumerator FadeOut()
+    {
+        GameData.RunSeed = SeedManager.Seed;
+
+        yield return new WaitForSeconds(2);
+
+        fadeOverlay.SetActive(true);
+        fadeOverlay.GetComponent<CanvasGroup>().DOFade(1f, fadeDuration);
+
+        yield return new WaitForSeconds(fadeDuration);
+
+        SceneManager.LoadScene(NextSceneName);
+
+        StartCoroutine(LoadSceneFully(NextSceneName));
+    }
+
+    IEnumerator LoadSceneFully(string sceneName)
+    {
+        AsyncOperation op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+        op.allowSceneActivation = false;
+
+        while (op.progress < 0.9f)
+        {
+            yield return null;
+        }
+
+        op.allowSceneActivation = true;
+
+        yield return null;
+
+        Debug.Log("Scene is fully loaded and initialized!");
     }
 }

@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dev Scenes/Z Dev Scene Characters.unity
     guid: 3de182f367a6b2c45aed3bca944b329a
+  - enabled: 1
+    path: Assets/Scenes/Dev Scenes/Z DEV STATES.unity
+    guid: 81f199420e6ea914286ce8191b8f0729
+  - enabled: 1
+    path: Assets/Scenes/Dev Scenes/Z Dev DiffSeed.unity
+    guid: 2b5065fe50094334f9ebe4a26583dcac
   m_configObjects: {}

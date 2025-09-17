@@ -19,15 +19,17 @@ public class CandidateGenerator : MonoBehaviour
         public Color skin, shirt, hat, misc1, misc2;
     }
 
-    // Called whenever a candidate prefab spawns (preview mode)
     public void PreviewCandidate(StaffData data)
     {
+        System.Random rng = SeedManager.GetSubRng(2);
+
         // If temp look exists, use it
         if (!data.hasTempLook)
         {
-            data.AssignClothingIfNeeded();
-            data.AssignColorsIfNeeded();
-            data.ApplyTempLook(); // save the temporary session colors/clothes
+            //      FINISH ASAP!!!!!!!!!!!!
+            //data.AssignClothingIfNeeded(rng);
+            //data.AssignColorsIfNeeded(rng);
+            data.ApplyTempLook();
         }
 
         bodyRender.color = data.tempSkin;
@@ -43,12 +45,11 @@ public class CandidateGenerator : MonoBehaviour
     }
 
 
-    // Called when a candidate is selected / confirmed
+
     public void SetupCandidate(StaffData data)
     {
         if (tempLooks.TryGetValue(data, out TempLook look))
         {
-            // Save final selection to StaffData
             data.selectedShirt = look.shirtSprite;
             data.selectedHat = look.hatSprite;
             data.selectedMisc1 = look.misc1Sprite;
@@ -64,7 +65,6 @@ public class CandidateGenerator : MonoBehaviour
         }
         else
         {
-            // fallback: preview if no cached look
             PreviewCandidate(data);
         }
     }
@@ -82,7 +82,6 @@ public class CandidateGenerator : MonoBehaviour
         misc2Render.color = look.misc2;
     }
 
-    // Clear temporary session data (call when scene ends)
     public static void ClearTempLooks()
     {
         tempLooks.Clear();

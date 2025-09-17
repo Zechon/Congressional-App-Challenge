@@ -11,15 +11,6 @@ public class StaffSelector : MonoBehaviour
     void Start()
     {
         var result = GetStaffChoices(3);
-
-        //foreach (var role in result.Keys)
-        //{
-        //    Debug.Log($"Final {role} choices:");
-        //    foreach (var staff in result[role])
-        //    {
-        //        Debug.Log($"- {staff.staffName} (Cost: {staff.cost}, Skill: {staff.skill})");
-        //    }
-        //}
     }
 
     public List<StaffData> allStaff;
@@ -27,7 +18,7 @@ public class StaffSelector : MonoBehaviour
     public Dictionary<CampaignRole, List<StaffData>> GetStaffChoices(int countPerRole = 3)
     {
         Dictionary<CampaignRole, List<StaffData>> choices = new Dictionary<CampaignRole, List<StaffData>>();
-        HashSet<StaffData> selectedStaffGlobal = new HashSet<StaffData>(); // track all picked staff
+        HashSet<StaffData> selectedStaffGlobal = new HashSet<StaffData>();
 
         bool valid = false;
         int safetyCounter = 0;
@@ -38,7 +29,6 @@ public class StaffSelector : MonoBehaviour
             choices.Clear();
             selectedStaffGlobal.Clear();
 
-            // Step 1: Randomly select staff per role without duplicates globally
             foreach (CampaignRole role in System.Enum.GetValues(typeof(CampaignRole)))
             {
                 List<StaffData> pool = allStaff.Where(s => s.role == role && !selectedStaffGlobal.Contains(s)).ToList();
@@ -47,29 +37,29 @@ public class StaffSelector : MonoBehaviour
                 int picks = Mathf.Min(countPerRole, pool.Count);
                 for (int i = 0; i < picks; i++)
                 {
-                    int index = Random.Range(0, pool.Count);
+                    int index = SeedManager.NextInt(0, pool.Count);
                     randomChoices.Add(pool[index]);
-                    selectedStaffGlobal.Add(pool[index]); // mark globally as picked
-                    pool.RemoveAt(index); // remove to prevent picking again in this role
+                    selectedStaffGlobal.Add(pool[index]);
+                    pool.RemoveAt(index);
                 }
 
                 choices[role] = randomChoices;
             }
 
-            // Step 2: Inject guaranteed or chance-based level 5
-            if (guaranteeLevel5 || Random.value < chanceOfLevel5)
+            // Level 5 injection
+            if (guaranteeLevel5 || SeedManager.NextFloat() < chanceOfLevel5)
             {
                 CampaignRole targetRole = (CampaignRole)System.Enum.GetValues(typeof(CampaignRole))
-                                            .GetValue(Random.Range(0, System.Enum.GetValues(typeof(CampaignRole)).Length));
+                                            .GetValue(SeedManager.NextInt(0, System.Enum.GetValues(typeof(CampaignRole)).Length));
 
                 var level5Pool = allStaff.Where(s => s.role == targetRole && s.skill == 5 && !selectedStaffGlobal.Contains(s)).ToList();
 
                 if (level5Pool.Count > 0)
                 {
-                    int replaceIndex = Random.Range(0, choices[targetRole].Count);
-                    var injected = level5Pool[Random.Range(0, level5Pool.Count)];
+                    int replaceIndex = SeedManager.NextInt(0, choices[targetRole].Count);
+                    var injected = level5Pool[SeedManager.NextInt(0, level5Pool.Count)];
 
-                    selectedStaffGlobal.Remove(choices[targetRole][replaceIndex]); // remove old pick from global set
+                    selectedStaffGlobal.Remove(choices[targetRole][replaceIndex]);
                     choices[targetRole][replaceIndex] = injected;
                     selectedStaffGlobal.Add(injected);
 
@@ -77,7 +67,6 @@ public class StaffSelector : MonoBehaviour
                 }
             }
 
-            // Step 3: Check if at least one combo is within 8–10
             List<int> comboCosts = new List<int>();
             List<string> validCombos = new List<string>();
 
@@ -108,6 +97,7 @@ public class StaffSelector : MonoBehaviour
 
         return choices;
     }
+
 
 
 }
