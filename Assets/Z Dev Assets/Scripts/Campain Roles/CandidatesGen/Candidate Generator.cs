@@ -10,7 +10,6 @@ public class CandidateGenerator : MonoBehaviour
     public Image misc1Render;
     public Image misc2Render;
 
-    // Temporary session cache for all candidates
     private static Dictionary<StaffData, TempLook> tempLooks = new Dictionary<StaffData, TempLook>();
 
     private struct TempLook
@@ -21,14 +20,12 @@ public class CandidateGenerator : MonoBehaviour
 
     public void PreviewCandidate(StaffData data)
     {
-        System.Random rng = SeedManager.GetSubRng(2);
+        System.Random rng = SeedManager.GetSubRng(3);
 
-        // If temp look exists, use it
         if (!data.hasTempLook)
         {
-            //      FINISH ASAP!!!!!!!!!!!!
-            //data.AssignClothingIfNeeded(rng);
-            //data.AssignColorsIfNeeded(rng);
+            data.AssignClothingIfNeeded(rng);
+            data.AssignColorsIfNeeded(rng);
             data.ApplyTempLook();
         }
 
@@ -43,8 +40,6 @@ public class CandidateGenerator : MonoBehaviour
         misc1Render.color = data.tempMisc1Color;
         misc2Render.color = data.tempMisc2Color;
     }
-
-
 
     public void SetupCandidate(StaffData data)
     {

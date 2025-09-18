@@ -48,44 +48,40 @@ public class StaffData : ScriptableObject
 
     [HideInInspector] public bool hasTempLook = false;
 
-
     private enum ColorSchemeType { Monochrome, Complementary, Analogous, Triadic, Random }
 
-    public void AssignClothingIfNeeded()
+    public void AssignClothingIfNeeded(System.Random rng)
     {
         if (shirtOptions != null && selectedShirt == null && shirtOptions.Length > 0)
-            selectedShirt = shirtOptions[Random.Range(0, shirtOptions.Length)];
+            selectedShirt = shirtOptions[rng.Next(shirtOptions.Length)];
 
         if (misc1Options != null && selectedMisc1 == null && misc1Options.Length > 0)
-            selectedMisc1 = misc1Options[Random.Range(0, misc1Options.Length)];
+            selectedMisc1 = misc1Options[rng.Next(misc1Options.Length)];
 
         if (misc2Options != null && selectedMisc2 == null && misc2Options.Length > 0)
-            selectedMisc2 = misc2Options[Random.Range(0, misc2Options.Length)];
+            selectedMisc2 = misc2Options[rng.Next(misc2Options.Length)];
 
         if (hatOptions != null && selectedHat == null && hatOptions.Length > 0)
-            selectedHat = hatOptions[Random.Range(0, hatOptions.Length)];
+            selectedHat = hatOptions[rng.Next(hatOptions.Length)];
     }
 
-
-    public void AssignColorsIfNeeded()
+    public void AssignColorsIfNeeded(System.Random rng)
     {
-        // Only assign skin if not already assigned
         if (assignedSkin == default)
-            assignedSkin = GetRandomSkinColor();
+            assignedSkin = GetRandomSkinColor(rng);
 
-        // Only assign clothing colors if none assigned yet
         if (assignedShirt == default && assignedHat == default && assignedMisc1 == default && assignedMisc2 == default)
         {
-            Color baseColor = GetBaseColorForCategory(role);
-            ColorSchemeType scheme = PickRandomScheme();
+            Color baseColor = GetBaseColorForCategory(role, rng);
+            ColorSchemeType scheme = PickRandomScheme(rng);
 
             switch (scheme)
             {
                 case ColorSchemeType.Monochrome:
                     assignedShirt = baseColor;
-                    assignedHat = TintOrShadeForClothingType(baseColor, 0.85f);   // <-- used here
-                    assignedMisc1 = TintOrShadeForClothingType(baseColor, 0.7f);  // <-- used here
-                    assignedMisc2 = TintOrShadeForClothingType(baseColor, 0.5f);  // <-- misc2 darker
+                    assignedHat = TintOrShadeForClothingType(baseColor, 0.85f);
+                    assignedMisc1 = TintOrShadeForClothingType(baseColor, 0.7f);
+                    assignedMisc2 = TintOrShadeForClothingType(baseColor, 0.5f);
                     break;
 
                 case ColorSchemeType.Complementary:
@@ -110,43 +106,77 @@ public class StaffData : ScriptableObject
                     break;
 
                 case ColorSchemeType.Random:
-                    assignedShirt = GetRandomClothingColor();
-                    assignedHat = TintOrShadeForClothingType(GetRandomClothingColor(), 0.9f);
-                    assignedMisc1 = TintOrShadeForClothingType(GetRandomClothingColor(), 1.05f);
-                    assignedMisc2 = TintOrShadeForClothingType(Shade(GetRandomClothingColor(), 0.5f), 0.5f);
+                    assignedShirt = GetRandomClothingColor(rng);
+                    assignedHat = TintOrShadeForClothingType(GetRandomClothingColor(rng), 0.9f);
+                    assignedMisc1 = TintOrShadeForClothingType(GetRandomClothingColor(rng), 1.05f);
+                    assignedMisc2 = TintOrShadeForClothingType(Shade(GetRandomClothingColor(rng), 0.5f), 0.5f);
                     break;
             }
         }
     }
 
-
-    private Color GetBaseColorForCategory(CampaignRole role)
+    private Color GetBaseColorForCategory(CampaignRole role, System.Random rng)
     {
+        float h = (float)rng.NextDouble();
+        float s, v;
+
         switch (role)
         {
             case CampaignRole.Finance:
-                return Random.ColorHSV(0f, 1f, 0.4f, 0.7f, 0.5f, 0.8f); // muted colors
+                s = 0.4f + (float)rng.NextDouble() * 0.3f;
+                v = 0.5f + (float)rng.NextDouble() * 0.3f;
+                break;
             case CampaignRole.Field:
-                return Random.ColorHSV(0f, 1f, 0.6f, 0.9f, 0.6f, 0.9f); // brighter
+                s = 0.6f + (float)rng.NextDouble() * 0.3f;
+                v = 0.6f + (float)rng.NextDouble() * 0.3f;
+                break;
             case CampaignRole.Communications:
-                return Random.ColorHSV(0f, 1f, 0.5f, 0.8f, 0.5f, 0.85f);
+                s = 0.5f + (float)rng.NextDouble() * 0.3f;
+                v = 0.5f + (float)rng.NextDouble() * 0.35f;
+                break;
             default:
-                return Random.ColorHSV(0f, 1f, 0.5f, 0.8f, 0.5f, 0.85f);
+                s = 0.5f + (float)rng.NextDouble() * 0.3f;
+                v = 0.5f + (float)rng.NextDouble() * 0.35f;
+                break;
         }
+
+        return Color.HSVToRGB(h, s, v);
     }
 
-    private Color GetRandomClothingColor()
+    private Color GetRandomClothingColor(System.Random rng)
     {
-        // Use a moderate saturation and brightness for realistic clothes
-        return Random.ColorHSV(0f, 1f, 0.4f, 0.9f, 0.4f, 0.9f);
+        float h = (float)rng.NextDouble();
+        float s = 0.4f + (float)rng.NextDouble() * 0.5f;
+        float v = 0.4f + (float)rng.NextDouble() * 0.5f;
+        return Color.HSVToRGB(h, s, v);
+    }
+
+    private ColorSchemeType PickRandomScheme(System.Random rng)
+    {
+        float roll = (float)rng.NextDouble();
+        if (roll < 0.4f) return ColorSchemeType.Monochrome;
+        else if (roll < 0.65f) return ColorSchemeType.Complementary;
+        else if (roll < 0.85f) return ColorSchemeType.Analogous;
+        else return ColorSchemeType.Triadic;
+    }
+
+    private Color GetRandomSkinColor(System.Random rng)
+    {
+        Color[] skinTones = new Color[]
+        {
+            new Color(0.98f, 0.8f, 0.6f),
+            new Color(0.9f, 0.7f, 0.5f),
+            new Color(0.75f, 0.55f, 0.35f),
+            new Color(0.6f, 0.4f, 0.25f),
+            new Color(0.4f, 0.25f, 0.15f)
+        };
+        return skinTones[rng.Next(skinTones.Length)];
     }
 
     private Color ShiftHue(Color original, float shiftAmount)
     {
         Color.RGBToHSV(original, out float h, out float s, out float v);
         h = Mathf.Repeat(h + shiftAmount, 1f);
-
-        // Clamp s/v to realistic range
         s = Mathf.Clamp(s, 0.3f, 0.9f);
         v = Mathf.Clamp(v, 0.3f, 0.9f);
         return Color.HSVToRGB(h, s, v);
@@ -170,33 +200,14 @@ public class StaffData : ScriptableObject
         );
     }
 
-
-    private ColorSchemeType PickRandomScheme()
-    {
-        float roll = Random.value;
-        if (roll < 0.4f) return ColorSchemeType.Monochrome;
-        else if (roll < 0.65f) return ColorSchemeType.Complementary;
-        else if (roll < 0.85f) return ColorSchemeType.Analogous;
-        else return ColorSchemeType.Triadic;
-    }
-
-    private Color GetRandomSkinColor()
-    {
-        Color[] skinTones = new Color[]
-        {
-            new Color(0.98f, 0.8f, 0.6f),
-            new Color(0.9f, 0.7f, 0.5f),
-            new Color(0.75f, 0.55f, 0.35f),
-            new Color(0.6f, 0.4f, 0.25f),
-            new Color(0.4f, 0.25f, 0.15f)
-        };
-        return skinTones[Random.Range(0, skinTones.Length)];
-    }
-
     private Color TintOrShadeForClothingType(Color color, float factor)
     {
         return factor > 1f ? Tint(color, factor) : Shade(color, factor);
     }
+
+    // -------------------------
+    // Temp look management
+    // -------------------------
 
     public void ApplyTempLook()
     {
@@ -217,7 +228,6 @@ public class StaffData : ScriptableObject
         }
     }
 
-    // Reset temp values (e.g., on scene reload)
     public void ResetTempLook()
     {
         tempShirt = null;
@@ -233,5 +243,4 @@ public class StaffData : ScriptableObject
 
         hasTempLook = false;
     }
-
 }

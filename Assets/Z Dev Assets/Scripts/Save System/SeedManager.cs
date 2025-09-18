@@ -53,4 +53,6 @@ public static class SeedManager
     //  SubRNG 1 = State Generation
     //  SubRNG 2 = Candidate Generation
     //  SubRNG 3 = Candidate Clothing Gen
+    //  SubRNG 4 = Month Events
+    //  SubRNG 5 = Week Events
 }
