@@ -16,7 +16,6 @@ public class StaffSelector : MonoBehaviour
 
     public Dictionary<CampaignRole, List<StaffData>> GetStaffChoices(int countPerRole = 3)
     {
-        // Grab sub-RNG 2 for staff selection
         System.Random rng = SeedManager.GetSubRng(2);
 
         Dictionary<CampaignRole, List<StaffData>> choices = new Dictionary<CampaignRole, List<StaffData>>();
@@ -71,7 +70,7 @@ public class StaffSelector : MonoBehaviour
                     choices[targetRole][replaceIndex] = injected;
                     selectedStaffGlobal.Add(injected);
 
-                    Debug.Log($"⭐ Injected guaranteed Level 5 into {targetRole}: {injected.staffName}");
+                    Debug.Log($"Injected guaranteed Level 5 into {targetRole}: {injected.staffName}");
                 }
             }
 
