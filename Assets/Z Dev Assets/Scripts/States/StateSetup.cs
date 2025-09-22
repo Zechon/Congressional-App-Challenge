@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum PartyColor { Brown, Orange, Purple }
 
@@ -19,13 +20,13 @@ public class StateSetup : MonoBehaviour
     [Range(0f, 1f)] public float purplePercent;
 
     [Header("Other Setup")]
-    public SpriteRenderer spr;
+    public Image spr;
 
     [HideInInspector] public PartyColor currentColor;
 
     public void Start()
     {
-        spr = GetComponent<SpriteRenderer>();
+        spr = GetComponent<Image>();
     }
 
     public void CalculateStateColor()
