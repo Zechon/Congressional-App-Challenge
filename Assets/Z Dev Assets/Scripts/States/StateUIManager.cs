@@ -9,6 +9,7 @@ public class StateUIManager : MonoBehaviour
     [Header("UI References")]
     public TMP_Text hoverNameText;
     public TMP_Text selectedNameText;
+    public TMP_Text selectedEcoText;
     public GameObject selectedPanel;
 
     [Header("Selection Settings")]
@@ -20,11 +21,16 @@ public class StateUIManager : MonoBehaviour
     public Camera cam;
     public LayerMask stateLayer2D;
 
+    [Header("Layers")]
+    [SerializeField] private Transform mapLayer;      // States' normal parent (inside mask)
+    [SerializeField] private Transform floatingLayer; // States go here when selected
+
     private StateSetup currentHovered;
     private StateSetup currentSelected;
 
     private Vector3 originalScaleSelected;
     private int originalSiblingSelected;
+    private Transform originalParentSelected;
 
     private Tween selectTween;
 
@@ -32,6 +38,7 @@ public class StateUIManager : MonoBehaviour
     {
         Instance = this;
         hoverNameText.text = "";
+        selectedEcoText.text = "";
         selectedPanel.SetActive(false);
     }
 
@@ -82,10 +89,22 @@ public class StateUIManager : MonoBehaviour
 
         selectedPanel.SetActive(true);
         selectedNameText.text = state.stateName;
+        selectedEcoText.text = state.economyLvl switch
+        {
+            1 => "Hyperinflated Economy",
+            2 => "Inflated",
+            3 => "Stable",
+            4 => "Growing Economy",
+            5 => "Booming Economy",
+            _ => "Unknown"
+        };
 
         originalScaleSelected = state.transform.localScale;
         originalSiblingSelected = state.transform.GetSiblingIndex();
+        originalParentSelected = state.transform.parent;
 
+        // Reparent to floating layer so it won't get clipped
+        state.transform.SetParent(floatingLayer, true);
         state.transform.SetAsLastSibling();
 
         selectTween?.Kill();
@@ -119,6 +138,9 @@ public class StateUIManager : MonoBehaviour
         selectTween?.Kill();
         state.transform.DOKill();
         state.transform.DOScale(originalScaleSelected, 0.2f).SetEase(Ease.OutCubic);
+
+        // Move it back to original parent and sibling index
+        state.transform.SetParent(originalParentSelected, true);
         state.transform.SetSiblingIndex(originalSiblingSelected);
     }
 }

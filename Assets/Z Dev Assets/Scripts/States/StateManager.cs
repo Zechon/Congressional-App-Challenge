@@ -49,7 +49,6 @@ public class StateManager : MonoBehaviour
             _ => 0.50f
         };
 
-
         int targetOrangeVotes = 0;
         int targetPurpleVotes = 0;
 
@@ -70,8 +69,47 @@ public class StateManager : MonoBehaviour
             targetPurpleVotes = nationalVotes - targetOrangeVotes;
         }
 
+        // NEW: Assign economy levels
+        AssignEconomyLevels();
+
         RandomizeStates(targetOrangeVotes, targetPurpleVotes);
     }
+
+    private void AssignEconomyLevels()
+    {
+        var rng = SeedManager.GetSubRng(2); // independent RNG stream for economy
+
+        foreach (var state in states)
+        {
+            int econ = 1;
+
+            switch (SeedManager.CurrentDifficulty)
+            {
+                case Difficulty.Easy:
+                    econ = rng.Next(2, 6); // range [2..5]
+                    break;
+
+                case Difficulty.Normal:
+                    econ = rng.Next(1, 6); // range [1..5]
+                    break;
+
+                case Difficulty.Hard:
+                    econ = rng.Next(1, 4); // range [1..3]
+                    break;
+
+                default:
+                    econ = rng.Next(1, 6);
+                    break;
+            }
+
+            state.economyLvl = econ;
+
+            // Debug to verify
+            Debug.Log($"{state.stateName} = Economy Level {state.economyLvl}");
+        }
+    }
+
+
 
     private void RandomizeStates(int targetOrangeVotes, int targetPurpleVotes)
     {
