@@ -7,10 +7,11 @@ public class StateUIManager : MonoBehaviour
     public static StateUIManager Instance;
 
     [Header("UI References")]
-    public TMP_Text hoverNameText;
     public TMP_Text selectedNameText;
     public TMP_Text selectedEcoText;
     public GameObject selectedPanel;
+    public TMP_Text prcntText;
+    public TMP_Text ttlVotes;
 
     [Header("Selection Settings")]
     public float selectedScale = 1.15f;
@@ -22,10 +23,9 @@ public class StateUIManager : MonoBehaviour
     public LayerMask stateLayer2D;
 
     [Header("Layers")]
-    [SerializeField] private Transform mapLayer;      // States' normal parent (inside mask)
-    [SerializeField] private Transform floatingLayer; // States go here when selected
+    [SerializeField] private Transform mapLayer;
+    [SerializeField] private Transform floatingLayer;
 
-    private StateSetup currentHovered;
     private StateSetup currentSelected;
 
     private Vector3 originalScaleSelected;
@@ -37,53 +37,37 @@ public class StateUIManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        hoverNameText.text = "";
         selectedEcoText.text = "";
+        prcntText.text = "";
+        ttlVotes.text = "";
         selectedPanel.SetActive(false);
     }
 
     void Update()
     {
-        HandleHover();
         HandleClick();
-    }
-
-    void HandleHover()
-    {
-        Vector2 mouseWorld = cam.ScreenToWorldPoint(Input.mousePosition);
-        Collider2D hit = Physics2D.OverlapPoint(mouseWorld, stateLayer2D);
-        StateSetup hoveredState = hit ? hit.GetComponent<StateSetup>() : null;
-
-        if (hoveredState != currentHovered)
-        {
-            currentHovered = hoveredState;
-
-            if (currentHovered != null)
-                hoverNameText.text = currentHovered.stateName;
-            else
-                hoverNameText.text = "";
-        }
     }
 
     void HandleClick()
     {
-        if (Input.GetMouseButtonDown(0) && currentHovered != null)
+        if (Input.GetMouseButtonDown(0))
         {
-            SelectState(currentHovered);
+            Vector2 mouseWorld = cam.ScreenToWorldPoint(Input.mousePosition);
+            Collider2D hit = Physics2D.OverlapPoint(mouseWorld, stateLayer2D);
+            StateSetup clickedState = hit ? hit.GetComponent<StateSetup>() : null;
+
+            if (clickedState != null)
+                SelectState(clickedState);
         }
     }
 
     public void SelectState(StateSetup state)
     {
-        // If clicking the already selected state, do nothing
         if (currentSelected == state)
             return;
 
-        // Reset previous selection
         if (currentSelected != null)
-        {
             ResetSelection(currentSelected);
-        }
 
         currentSelected = state;
 
@@ -99,11 +83,22 @@ public class StateUIManager : MonoBehaviour
             _ => "Unknown"
         };
 
+        prcntText.text = state.currentColor switch
+        {
+            PartyColor.Purple => $"{state.PurpleRatioClamped() * 100f:0.#}% P",
+            PartyColor.Orange => $"{state.OrangeRatioClamped() * 100f:0.#}% O",
+            PartyColor.Brown => GameData.Party == "Orange"
+                ? $"{state.OrangeRatioClamped() * 100f:0.#}% O"
+                : $"{state.PurpleRatioClamped() * 100f:0.#}% P",
+            _ => ""
+        };
+
+        ttlVotes.text = state.stateVotes.ToString();
+
         originalScaleSelected = state.transform.localScale;
         originalSiblingSelected = state.transform.GetSiblingIndex();
         originalParentSelected = state.transform.parent;
 
-        // Reparent to floating layer so it won't get clipped
         state.transform.SetParent(floatingLayer, true);
         state.transform.SetAsLastSibling();
 
@@ -119,7 +114,6 @@ public class StateUIManager : MonoBehaviour
                     .SetEase(Ease.InOutSine);
             });
     }
-
 
     public void DeselectState()
     {
@@ -139,7 +133,6 @@ public class StateUIManager : MonoBehaviour
         state.transform.DOKill();
         state.transform.DOScale(originalScaleSelected, 0.2f).SetEase(Ease.OutCubic);
 
-        // Move it back to original parent and sibling index
         state.transform.SetParent(originalParentSelected, true);
         state.transform.SetSiblingIndex(originalSiblingSelected);
     }
