@@ -113,6 +113,10 @@ public class StateUIManager : MonoBehaviour
                     .SetLoops(-1, LoopType.Yoyo)
                     .SetEase(Ease.InOutSine);
             });
+
+        selectedPanel.SetActive(true);
+
+        ActionPanel.instance.Show(state);
     }
 
     public void DeselectState()

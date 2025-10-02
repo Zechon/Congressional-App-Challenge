@@ -634,6 +634,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Tablet_25
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 716883992ded56a4ab8c156be2d52aca
+      internalID: 1726862141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -663,6 +684,7 @@ TextureImporter:
       Tablet_22: -1431465735
       Tablet_23: 999760618
       Tablet_24: -1037203046
+      Tablet_25: 1726862141
       Tablet_3: -539367610
       Tablet_4: 1925237633
       Tablet_5: 79851719
