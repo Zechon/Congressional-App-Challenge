@@ -12,7 +12,7 @@ public class ActionButton : MonoBehaviour
     {
         actionName = name;
         actionCost = cost;
-        label.text = $"{name} ({cost})";
+        label.text = cost > 0 ? $"{name} (${cost})" : name;
     }
 
     public void OnClick()

@@ -1,14 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ActionPanel : MonoBehaviour
 {
     public static ActionPanel instance;
 
+    [Header("UI References")]
+    public Transform contentParent;   // ScrollView/Viewport/Content
+    public GameObject actionButtonPrefab;
+
     private StateSetup currentState;
 
-    private void Awake()
+    void Awake()
     {
         instance = this;
         gameObject.SetActive(false);
@@ -18,6 +20,24 @@ public class ActionPanel : MonoBehaviour
     {
         currentState = state;
         gameObject.SetActive(true);
+
+        // Clear old buttons
+        foreach (Transform child in contentParent)
+            Destroy(child.gameObject);
+
+        // Example actions (replace with your actual set)
+        AddAction("Ad Campaign", 50);
+        AddAction("Parade", 30);
+        AddAction("Fundraise", 0);
+        AddAction("Humanitarian Aid", 40);
+        AddAction("Debate Prep", 25);
+        AddAction("Town Hall Meeting", 20);
+    }
+
+    private void AddAction(string name, int cost)
+    {
+        var btn = Instantiate(actionButtonPrefab, contentParent);
+        btn.GetComponent<ActionButton>().Setup(name, cost);
     }
 
     public void Hide()
@@ -28,10 +48,9 @@ public class ActionPanel : MonoBehaviour
 
     public void OnSelectAction(string actionName, int cost)
     {
-        if (currentState != null) return;
+        if (currentState == null) return;
 
         ConfirmationPanel.instance.Show(currentState, actionName, cost);
-
         Hide();
     }
 }
