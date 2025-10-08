@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ActionButton : MonoBehaviour
+public class ActionButtonUI : MonoBehaviour
 {
     [SerializeField] private TMP_Text label;
     private string actionName;

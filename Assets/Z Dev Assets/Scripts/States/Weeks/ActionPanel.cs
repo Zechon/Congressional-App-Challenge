@@ -37,7 +37,7 @@ public class ActionPanel : MonoBehaviour
     private void AddAction(string name, int cost)
     {
         var btn = Instantiate(actionButtonPrefab, contentParent);
-        btn.GetComponent<ActionButton>().Setup(name, cost);
+        btn.GetComponent<ActionButtonUI>().Setup(name, cost);
     }
 
     public void Hide()
