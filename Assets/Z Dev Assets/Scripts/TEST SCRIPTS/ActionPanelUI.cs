@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro;
 
 public class ActionPanelUI : MonoBehaviour
 {
@@ -8,20 +9,14 @@ public class ActionPanelUI : MonoBehaviour
 
     [Header("UI References")]
     [SerializeField] private ScrollRect scrollRect;
-    [SerializeField] private Transform contentParent; // Content inside ScrollView
+    [SerializeField] private Transform contentParent;
     [SerializeField] private GameObject actionButtonPrefab;
 
-
-    [System.Serializable]
-    public class ActionOption
-    {
-        public string name;
-        public int cost;
-    }
-    [Header("Available Actions")]
-    [SerializeField] private List<ActionOption> availableActions = new List<ActionOption>();
+    [Header("Action Database")]
+    [SerializeField] private ActionDatabase actionDatabase;
 
     private StateSetup currentState;
+    private List<ActionDatabase.CampaignAction> currentActions = new List<ActionDatabase.CampaignAction>();
 
     private void Awake()
     {
@@ -29,12 +24,20 @@ public class ActionPanelUI : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-
     public void Show(StateSetup state)
     {
         currentState = state;
         gameObject.SetActive(true);
-        PopulateActions();
+
+        if (actionDatabase != null)
+        {
+            currentActions = actionDatabase.actions;
+            PopulateActions();
+        }
+        else
+        {
+            Debug.LogWarning("No ActionDatabase assigned to ActionPanelUI!");
+        }
     }
 
     public void Hide()
@@ -43,25 +46,35 @@ public class ActionPanelUI : MonoBehaviour
         currentState = null;
     }
 
-
-    public void PopulateActions()
+    private void PopulateActions()
     {
-        // Clear old buttons
         foreach (Transform child in contentParent)
             Destroy(child.gameObject);
 
-        // Spawn new buttons
-        foreach (var action in availableActions)
+        foreach (var action in currentActions)
         {
             GameObject btnObj = Instantiate(actionButtonPrefab, contentParent);
-            btnObj.transform.localScale = Vector3.one; // Important to reset scale
+            btnObj.transform.localScale = Vector3.one;
+
             var buttonUI = btnObj.GetComponent<ActionButtonUI>();
-            buttonUI.Setup(action.name, action.cost);
+
+            float modifiedCost = action.baseCost;
+            string costModifiersText = "";
+            foreach (var mod in action.modifiers)
+            {
+                if (mod.type == ActionDatabase.ModifierType.Cost)
+                {
+                    modifiedCost *= (1f + mod.value);
+                    costModifiersText += $"({mod.value * 100:+#;-#}% Cost | {mod.staffName}) ";
+                    Debug.LogWarning($"({mod.value * 100:+#;-#}% Cost | {mod.staffName})");
+                }
+            }
+
+            buttonUI.Setup(action.actionName, Mathf.RoundToInt(modifiedCost), costModifiersText);
         }
 
-        // Force layout rebuild so ScrollRect knows the content size
         Canvas.ForceUpdateCanvases();
-        scrollRect.verticalNormalizedPosition = 1f; // Scroll to top
+        scrollRect.verticalNormalizedPosition = 1f;
     }
 
     public void OnSelectAction(string actionName, int actionCost)
@@ -72,13 +85,17 @@ public class ActionPanelUI : MonoBehaviour
             return;
         }
 
+        var action = actionDatabase.GetAction(actionName);
+        if (action == null)
+        {
+            Debug.LogWarning($"Action {actionName} not found in database!");
+            return;
+        }
+
         Debug.Log($"Selected action: {actionName} (${actionCost}) in {currentState.stateName}");
 
-        // Show confirmation before applying
         if (ConfirmationPanel.instance != null)
             ConfirmationPanel.instance.Show(currentState, actionName, actionCost);
-        else
-            Debug.LogWarning("No ConfirmationPanel instance found.");
 
         Hide();
     }

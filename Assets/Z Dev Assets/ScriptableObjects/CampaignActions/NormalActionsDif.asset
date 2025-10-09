@@ -9,12 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ebd70e5c547e024dbba8ba8a6404c36, type: 3}
-  m_Name: Grassroots Collector
+  m_Script: {fileID: 11500000, guid: 46645a2fd4a3bc64eb18d71a35460abf, type: 3}
+  m_Name: NormalActionsDif
   m_EditorClassIdentifier: 
-  staffName: Grassroots Collector
-  role: 0
-  stat1: 3
-  skill: 2
-  cost: 2
-  description: Good with small donors, weak with big ones.
+  actions:
+  - actionName: Fundraise
+    baseCost: 0
+    baseEffect: 40
+    successChance: 0.7
+    modifiers:
+    - staffName: Financial
+      type: 1
+      value: 0.15
+    description: 
