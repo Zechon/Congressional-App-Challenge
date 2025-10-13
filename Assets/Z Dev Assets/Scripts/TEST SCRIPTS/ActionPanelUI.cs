@@ -12,7 +12,7 @@ public class ActionPanelUI : MonoBehaviour
     [SerializeField] private Transform contentParent;
     [SerializeField] private GameObject actionButtonPrefab;
 
-    [Header("Action Database")]
+    [Header("Action + Staff Databases")]
     [SerializeField] private ActionDatabase actionDatabase;
 
     private StateSetup currentState;
@@ -22,6 +22,8 @@ public class ActionPanelUI : MonoBehaviour
     {
         instance = this;
         gameObject.SetActive(false);
+
+        List<StaffData> hires = GameData.HiredStaff;
     }
 
     public void Show(StateSetup state)
@@ -58,19 +60,7 @@ public class ActionPanelUI : MonoBehaviour
 
             var buttonUI = btnObj.GetComponent<ActionButtonUI>();
 
-            float modifiedCost = action.baseCost;
-            string costModifiersText = "";
-            foreach (var mod in action.modifiers)
-            {
-                if (mod.type == ActionDatabase.ModifierType.Cost)
-                {
-                    modifiedCost *= (1f + mod.value);
-                    costModifiersText += $"({mod.value * 100:+#;-#}% Cost | {mod.staffName}) ";
-                    Debug.LogWarning($"({mod.value * 100:+#;-#}% Cost | {mod.staffName})");
-                }
-            }
-
-            buttonUI.Setup(action.actionName, Mathf.RoundToInt(modifiedCost), costModifiersText);
+            buttonUI.Setup(action);
         }
 
         Canvas.ForceUpdateCanvases();

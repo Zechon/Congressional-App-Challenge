@@ -13,12 +13,86 @@ MonoBehaviour:
   m_Name: NormalActionsDif
   m_EditorClassIdentifier: 
   actions:
-  - actionName: Fundraise
+  - actionName: Fundraiser
+    description: 
+    category: 0
     baseCost: 0
     baseEffect: 40
     successChance: 0.7
     modifiers:
-    - staffName: Financial
+    - staffName: 
+      role: 0
       type: 1
       value: 0.15
+    - staffName: 
+      role: 1
+      type: 1
+      value: 0.03
+    - staffName: 
+      role: 2
+      type: 1
+      value: 0.05
+  - actionName: Ad Campaign
     description: 
+    category: 1
+    baseCost: 60
+    baseEffect: 5
+    successChance: 0.65
+    modifiers:
+    - staffName: 
+      role: 0
+      type: 0
+      value: -0.05
+    - staffName: 
+      role: 1
+      type: 1
+      value: 0.1
+  - actionName: Parade / Rally
+    description: 
+    category: 1
+    baseCost: 45
+    baseEffect: 5
+    successChance: 0.7
+    modifiers:
+    - staffName: 
+      role: 2
+      type: 2
+      value: 0.08
+    - staffName: 
+      role: 1
+      type: 1
+      value: 0.05
+  - actionName: Humanitarian Aid
+    description: 
+    category: 3
+    baseCost: 35
+    baseEffect: 5
+    successChance: 0.7
+    modifiers:
+    - staffName: 
+      role: 2
+      type: 1
+      value: 0.05
+    - staffName: 
+      role: 1
+      type: 2
+      value: 0.1
+  - actionName: Internal Audit
+    description: 
+    category: 2
+    baseCost: 0
+    baseEffect: 0
+    successChance: 1
+    modifiers:
+    - staffName: 
+      role: 0
+      type: 1
+      value: 0.075
+    - staffName: 
+      role: 1
+      type: 1
+      value: 0.075
+    - staffName: 
+      role: 2
+      type: 1
+      value: 0.075

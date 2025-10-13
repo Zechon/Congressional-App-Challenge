@@ -6,10 +6,10 @@ using UnityEngine;
 public class StaffData : ScriptableObject
 {
     [Header("Stats")]
-    public CampaignRole role; // Finance, Field, Communications
+    public CampaignRole role;
     public string staffName;
     [TextArea] public string description;
-    [Range(1, 5)] public int stat1;  // Connections / Message Control / Motivation
+    [Range(1, 5)] public int stat1;
     [Range(1, 5)] public int skill;
     public int cost;
 
@@ -204,10 +204,6 @@ public class StaffData : ScriptableObject
     {
         return factor > 1f ? Tint(color, factor) : Shade(color, factor);
     }
-
-    // -------------------------
-    // Temp look management
-    // -------------------------
 
     public void ApplyTempLook()
     {
