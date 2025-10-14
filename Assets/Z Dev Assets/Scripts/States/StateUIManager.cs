@@ -115,8 +115,6 @@ public class StateUIManager : MonoBehaviour
             });
 
         selectedPanel.SetActive(true);
-
-        ActionPanelUI.instance.Show(state);
     }
 
     public void DeselectState()

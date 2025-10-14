@@ -7,4 +7,5 @@ public static class GameData
     public static int wghdIdeals;
     public static string Party;
     public static int RunSeed;
+    public static int Money;
 }

@@ -537,7 +537,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -108.99989, y: 0}
-  m_SizeDelta: {x: -218, y: 0}
+  m_SizeDelta: {x: -218, y: 125}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &171138069
 MonoBehaviour:
@@ -2078,7 +2078,7 @@ RectTransform:
   m_Father: {fileID: 1962082956}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -34255,13 +34255,14 @@ GameObject:
   - component: {fileID: 1787111025}
   - component: {fileID: 1787111027}
   - component: {fileID: 1787111026}
+  - component: {fileID: 1787111028}
   m_Layer: 0
   m_Name: Tablet_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1787111025
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34308,7 +34309,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1037203046, guid: 3fe57ee0f46f720408927e28a6cbb35b, type: 3}
+  m_Sprite: {fileID: 1232525083, guid: 7f16ce55a49c19043a24116639b1ffb3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -34326,6 +34327,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787111024}
   m_CullTransparentMesh: 1
+--- !u!95 &1787111028
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787111024}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e446c81454cbfe94487467035ed4b39f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1816694017
 GameObject:
   m_ObjectHideFlags: 0
@@ -34523,10 +34545,11 @@ GameObject:
   - component: {fileID: 1843813495}
   - component: {fileID: 1843813498}
   - component: {fileID: 1843813497}
-  - component: {fileID: 1843813496}
+  - component: {fileID: 1843813500}
   - component: {fileID: 1843813499}
+  - component: {fileID: 1843813496}
   m_Layer: 0
-  m_Name: BiggerMenu
+  m_Name: Menu Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34570,7 +34593,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -34594,7 +34617,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1843813497}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1843813499}
+        m_TargetAssemblyTypeName: WeekMenuTransitions, Assembly-CSharp
+        m_MethodName: StateMenuRiseFall
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1843813497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34633,7 +34668,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843813494}
   m_CullTransparentMesh: 1
---- !u!95 &1843813499
+--- !u!114 &1843813499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843813494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01bbdf098a9844843b6c51f811ed7716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tab: {fileID: 1787111024}
+  ActPnl: {fileID: 1965807832}
+--- !u!95 &1843813500
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -34643,7 +34692,7 @@ Animator:
   m_GameObject: {fileID: 1843813494}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9396758b7650bfa44ba3be03a4230acc, type: 2}
+  m_Controller: {fileID: 9100000, guid: 615823b2331b2c14f839740bcb7ddcc1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -35652,7 +35701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1965807833
 RectTransform:
   m_ObjectHideFlags: 0
