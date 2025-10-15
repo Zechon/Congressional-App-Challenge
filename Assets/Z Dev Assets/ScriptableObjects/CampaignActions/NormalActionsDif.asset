@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actions:
   - actionName: Fundraiser
-    description: 
+    description: HERE COMES DA MONEYYYYY MONEY MONEY MONEY MONEY MONEY MONEY MONEY
+      MONEY MONEY MONEY MONEY
     category: 0
     baseCost: 0
     baseEffect: 40
@@ -33,7 +34,7 @@ MonoBehaviour:
       type: 1
       value: 0.05
   - actionName: Ad Campaign
-    description: 
+    description: BUT WAIT, THERES MORE!
     category: 1
     baseCost: 60
     baseEffect: 5
@@ -48,7 +49,7 @@ MonoBehaviour:
       type: 1
       value: 0.1
   - actionName: Parade / Rally
-    description: 
+    description: We need ballyoons lowkey
     category: 1
     baseCost: 45
     baseEffect: 5
@@ -63,7 +64,7 @@ MonoBehaviour:
       type: 1
       value: 0.05
   - actionName: Humanitarian Aid
-    description: 
+    description: Helping people is good I guess
     category: 3
     baseCost: 35
     baseEffect: 5
@@ -78,7 +79,7 @@ MonoBehaviour:
       type: 2
       value: 0.1
   - actionName: Internal Audit
-    description: 
+    description: Meow
     category: 2
     baseCost: 0
     baseEffect: 0

@@ -2,12 +2,31 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Text;
+using System.Collections.Generic;
 
 public class ActionButtonUI : MonoBehaviour
 {
+    [Header("Name and Category")]
     [SerializeField] private TMP_Text label;
     [SerializeField] private TMP_Text categoryText;
+    [SerializeField] private TMP_Text descriptionText;
     [SerializeField] private Image categoryBackground;
+
+    [Header("Stats")]
+    [SerializeField] private Image effectImg;
+    [SerializeField] private Color effectColor;
+    [SerializeField] private Image costImg;
+    [SerializeField] private Color costColor;
+    [SerializeField] private Image successImg;
+    [SerializeField] private Color successColor;
+    [SerializeField] private Image timeImg;
+    [SerializeField] private Color timeColor;
+
+    [Header("Stat Text")]
+    [SerializeField] private TMP_Text effectTxt;
+    [SerializeField] private TMP_Text costTxt;
+    [SerializeField] private TMP_Text successTxt;
+    [SerializeField] private TMP_Text timeTxt;
 
     private ActionDatabase.CampaignAction actionData;
 
@@ -17,29 +36,28 @@ public class ActionButtonUI : MonoBehaviour
 
         categoryText.text = $"[{action.category}]";
         categoryBackground.color = GetCategoryColor(action.category);
+        descriptionText.text = action.description;
 
-        float modifiedCost = action.baseCost;
-        StringBuilder modifierPreview = new();
+        var result = ActionModifierUtility.ApplyModifiers(action);
 
-        foreach (var mod in action.modifiers)
-        {
-            if (mod.type == ActionDatabase.ModifierType.Cost)
-            {
-                float costChange = action.baseCost * mod.value;
-                modifiedCost += costChange;
-                string sign = mod.value < 0 ? "-" : "+";
-                modifierPreview.AppendLine(
-                    $"({sign}{Mathf.Abs(mod.value * 100f):0}% Cost | {mod.role})"
-                );
-            }
-        }
+        bool costChanged = Mathf.Abs(result.modifiedCost - action.baseCost) > 0.1f;
 
-        string costText = action.modifiers.Count > 0
-            ? $"<s>${action.baseCost}K</s> ${modifiedCost:0}K"
+        string costText = costChanged
+            ? $"<s>${action.baseCost}K</s> ${result.modifiedCost:0}K"
             : $"${action.baseCost}K";
 
-        label.text = $"{action.actionName}\n<size=80%>{costText}</size>\n<color=#aaaaaa>{modifierPreview}</color>";
+        costTxt.text = costText;
+        costImg.color = costColor;
+        effectTxt.text = $"{result.modifiedEffect:+0;-0}";
+        effectImg.color = effectColor;
+        successTxt.text = $"{result.modifiedSuccessChance * 100f:0}%";
+        successImg.color = successColor;
+        timeTxt.text = "—";
+        timeImg.color = timeColor;
+
+        label.text = action.actionName;
     }
+
 
     public void OnClick()
     {
@@ -57,7 +75,7 @@ public class ActionButtonUI : MonoBehaviour
             ActionDatabase.EffectCategory.Money => new Color(0.9f, 0.8f, 0.2f),
             ActionDatabase.EffectCategory.VoterSway => new Color(0.4f, 0.8f, 1f),
             ActionDatabase.EffectCategory.InternalPrep => new Color(0.7f, 0.5f, 1f),
-            ActionDatabase.EffectCategory.PR_Morale => new Color(1f, 0.6f, 0.3f),
+            ActionDatabase.EffectCategory.PR => new Color(1f, 0.6f, 0.3f),
             ActionDatabase.EffectCategory.Logistics => new Color(0.3f, 0.9f, 0.5f),
             _ => Color.white
         };

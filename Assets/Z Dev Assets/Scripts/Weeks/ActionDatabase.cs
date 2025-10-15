@@ -26,7 +26,7 @@ public class ActionDatabase : ScriptableObject
         Money,          // Fundraising or finance gain
         VoterSway,      // Shifts votes or public support
         InternalPrep,   // Internal buffs, strategic preparation
-        PR_Morale,             // Public relations or media impact
+        PR,             // Public relations or media impact
         Logistics,      // Improves efficiency or cost reductions
     }
 
