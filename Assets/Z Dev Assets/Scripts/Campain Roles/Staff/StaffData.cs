@@ -46,6 +46,7 @@ public class StaffData : ScriptableObject
     [HideInInspector] public Color tempMisc1Color;
     [HideInInspector] public Color tempMisc2Color;
 
+    public Sprite appearancePortrait;
     [HideInInspector] public bool hasTempLook = false;
 
     private enum ColorSchemeType { Monochrome, Complementary, Analogous, Triadic, Random }

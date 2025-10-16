@@ -31,8 +31,9 @@ public class CandidateCarousel : MonoBehaviour
     private int currentIndex = 0;
 
     private bool isOnCooldown = false;
-
     private CandidateSelectionManager selectionMgr;
+
+    private Dictionary<CampaignRole, GameObject> candidateObjectsByRole = new Dictionary<CampaignRole, GameObject>();
 
     void Start()
     {
@@ -68,6 +69,7 @@ public class CandidateCarousel : MonoBehaviour
         foreach (var obj in activeCandidates)
             Destroy(obj);
         activeCandidates.Clear();
+        candidateObjectsByRole.Clear();
 
         GameObject first = SpawnCandidateAtIndex(currentIndex, Vector3.zero, 1f);
         GameObject next = SpawnCandidateAtIndex((currentIndex + 1) % candidateDataList.Count, new Vector3(spacing, 0, 0), 0f);
@@ -93,6 +95,7 @@ public class CandidateCarousel : MonoBehaviour
 
         if (selectionMgr != null)
             selectionMgr.OnCandidateSpawned(candidate, data);
+        RegisterCandidate(data.role, candidate);
 
         return candidate;
     }
@@ -150,7 +153,6 @@ public class CandidateCarousel : MonoBehaviour
         activeCandidates.Add(newCandidate);
 
         UpdateStatsDisplay(newData);
-
         currentIndex = newIndex;
     }
 
@@ -170,6 +172,7 @@ public class CandidateCarousel : MonoBehaviour
         if (skillText) skillText.text = $"Skill: {data.skill}";
         if (costText) costText.text = $"Cost: {data.cost}";
     }
+
     public StaffData GetCurrentCandidateData()
     {
         if (candidateDataList.Count == 0) return null;
@@ -181,9 +184,29 @@ public class CandidateCarousel : MonoBehaviour
         if (activeCandidates.Count == 0) return null;
         return activeCandidates[0];
     }
+
     public RectTransform GetCurrentCandidateRect()
     {
         if (activeCandidates.Count == 0) return null;
         return activeCandidates[0].GetComponent<RectTransform>();
+    }
+
+    public void RegisterCandidate(CampaignRole role, GameObject obj)
+    {
+        if (obj == null) return;
+
+        if (candidateObjectsByRole.ContainsKey(role))
+            candidateObjectsByRole[role] = obj;
+        else
+            candidateObjectsByRole.Add(role, obj);
+    }
+
+    public GameObject GetCandidateObject(CampaignRole role)
+    {
+        if (candidateObjectsByRole.TryGetValue(role, out GameObject obj))
+            return obj;
+
+        Debug.LogWarning($"No candidate object found for role {role}");
+        return null;
     }
 }

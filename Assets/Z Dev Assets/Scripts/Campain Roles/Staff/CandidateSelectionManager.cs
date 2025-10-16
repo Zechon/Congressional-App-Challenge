@@ -30,8 +30,14 @@ public class CandidateSelectionManager : MonoBehaviour
     [SerializeField] private GameObject fadeOverlay;
     [SerializeField] private float fadeDuration = 0.3f;
 
+    [Header("Portrait Generation")]
+    [SerializeField] private StaffPortraitGenerator portrait;
+
     void Start()
     {
+        if (portrait == null)
+            portrait = FindObjectOfType<StaffPortraitGenerator>();
+
         selectButton.onClick.AddListener(OnSelectPressed);
         confirmButton.onClick.AddListener(OnConfirmPressed);
 
@@ -41,10 +47,8 @@ public class CandidateSelectionManager : MonoBehaviour
 
     private IEnumerator InitializeAfterFadeIn()
     {
-        // Wait one extra frame just to be safe
         yield return null;
 
-        // Now initialize the carousel
         if (carousel != null)
             carousel.InitializeCarousel();
         else
@@ -91,7 +95,6 @@ public class CandidateSelectionManager : MonoBehaviour
     {
         if (candidateObj == null || data == null) return;
 
-        // Enable check if this candidate is selected
         bool isSelected = selectedCandidates.TryGetValue(data.role, out StaffData sel) && sel == data;
         SetCheckmark(data, isSelected, candidateObj);
     }
@@ -146,9 +149,30 @@ public class CandidateSelectionManager : MonoBehaviour
         foreach (var candidate in selectedCandidates.Values)
             Debug.Log($"{candidate.staffName} ({candidate.role})");
 
+        GenerateFinalPortraits();
+
         SaveSelectedCandidates();
 
         StartCoroutine(FadeOut());
+    }
+
+    private void GenerateFinalPortraits()
+    {
+        if (portrait == null)
+        {
+            Debug.LogError("StaffPortraitGenerator not assigned or found!");
+            return;
+        }
+
+        foreach (var kv in selectedCandidates)
+        {
+            GameObject obj = carousel.GetCandidateObject(kv.Key);
+            if (obj != null)
+            {
+                Sprite finalPortrait = portrait.GeneratePortrait(obj);
+                kv.Value.appearancePortrait = finalPortrait;
+            }
+        }
     }
 
     private void UpdateBudgetUI()
