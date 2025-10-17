@@ -169,8 +169,11 @@ public class CandidateSelectionManager : MonoBehaviour
             GameObject obj = carousel.GetCandidateObject(kv.Key);
             if (obj != null)
             {
-                Sprite finalPortrait = portrait.GeneratePortrait(obj);
-                kv.Value.appearancePortrait = finalPortrait;
+                foreach (var candidate in selectedCandidates.Values)
+                {
+                    var rect = obj.GetComponent<RectTransform>();
+                    Sprite finalPortrait = portrait.GeneratePortrait(obj, candidate.staffName, rect);
+                }
             }
         }
     }
@@ -188,8 +191,6 @@ public class CandidateSelectionManager : MonoBehaviour
 
     private IEnumerator FadeOut()
     {
-        GameData.RunSeed = SeedManager.Seed;
-
         yield return new WaitForSeconds(2);
 
         fadeOverlay.SetActive(true);

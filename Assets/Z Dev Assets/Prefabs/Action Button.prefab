@@ -972,17 +972,23 @@ MonoBehaviour:
   descriptionText: {fileID: 1095069148668216527}
   categoryBackground: {fileID: 4706910930118305466}
   effectImg: {fileID: 450395003414987350}
-  effectColor: {r: 0.70037127, g: 0, b: 1, a: 1}
+  effectColor: {r: 0.35686275, g: 0.7529412, b: 0.87058824, a: 1}
   costImg: {fileID: 348596794226664025}
-  costColor: {r: 1, g: 0.91431546, b: 0, a: 1}
+  costColor: {r: 0.9411765, g: 0.6784314, b: 0.30588236, a: 1}
   successImg: {fileID: 3218381315728561084}
-  successColor: {r: 0.25991678, g: 1, b: 0, a: 1}
+  successColor: {r: 0.18943575, g: 0.9339623, b: 0.27216098, a: 1}
   timeImg: {fileID: 7320916696054659430}
-  timeColor: {r: 0, g: 0.8870239, b: 1, a: 1}
+  timeColor: {r: 0.84705883, g: 0.84705883, b: 0.84705883, a: 1}
   effectTxt: {fileID: 7295775378482938185}
   costTxt: {fileID: 2345959909978185544}
   successTxt: {fileID: 6371535934489691801}
   timeTxt: {fileID: 1495318042249810107}
+  finFrameImg: {fileID: 8629437615825721299}
+  finFrameColor: {r: 1, g: 0.84313726, b: 0, a: 1}
+  fieldFrameImg: {fileID: 7287079523025973310}
+  fieldFrameColor: {r: 0.29411766, g: 0.3254902, b: 0.1254902, a: 1}
+  comFrameImg: {fileID: 7394365275171643958}
+  comFrameColor: {r: 0, g: 0.38431373, b: 0.60784316, a: 1}
 --- !u!114 &1568377538160891957
 MonoBehaviour:
   m_ObjectHideFlags: 0

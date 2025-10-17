@@ -28,6 +28,14 @@ public class ActionButtonUI : MonoBehaviour
     [SerializeField] private TMP_Text successTxt;
     [SerializeField] private TMP_Text timeTxt;
 
+    [Header("Staff")]
+    [SerializeField] private Image finFrameImg;
+    [SerializeField] private Color finFrameColor;
+    [SerializeField] private Image fieldFrameImg;
+    [SerializeField] private Color fieldFrameColor;
+    [SerializeField] private Image comFrameImg;
+    [SerializeField] private Color comFrameColor;
+
     private ActionDatabase.CampaignAction actionData;
 
     public void Setup(ActionDatabase.CampaignAction action)
@@ -46,14 +54,18 @@ public class ActionButtonUI : MonoBehaviour
             ? $"<s>${action.baseCost}K</s> ${result.modifiedCost:0}K"
             : $"${action.baseCost}K";
 
-        costTxt.text = costText;
+        costTxt.text = "Cost: " + costText;
         costImg.color = costColor;
-        effectTxt.text = $"{result.modifiedEffect:+0;-0}";
+        effectTxt.text = $"Effect: {result.modifiedEffect:+0;-0}K";
         effectImg.color = effectColor;
-        successTxt.text = $"{result.modifiedSuccessChance * 100f:0}%";
+        successTxt.text = $"Chance: {result.modifiedSuccessChance * 100f:0}%";
         successImg.color = successColor;
-        timeTxt.text = "—";
+        timeTxt.text = "Time Needed: —";
         timeImg.color = timeColor;
+        finFrameImg.color = finFrameColor;
+        fieldFrameImg.color = fieldFrameColor;
+        comFrameImg.color = comFrameColor;
+
 
         label.text = action.actionName;
     }
