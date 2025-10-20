@@ -35,6 +35,9 @@ public class ActionButtonUI : MonoBehaviour
     [SerializeField] private Color fieldFrameColor;
     [SerializeField] private Image comFrameImg;
     [SerializeField] private Color comFrameColor;
+    [SerializeField] private Image finBlank;
+    [SerializeField] private Image fieldBlank;
+    [SerializeField] private Image comBlank;
 
     private ActionDatabase.CampaignAction actionData;
 
@@ -66,6 +69,25 @@ public class ActionButtonUI : MonoBehaviour
         fieldFrameImg.color = fieldFrameColor;
         comFrameImg.color = comFrameColor;
 
+        foreach (var candidate in GameData.HiredStaff)
+        {
+            var role = candidate.role;
+
+            switch (role)
+            {
+                case CampaignRole.Finance:
+                    finBlank.sprite = StaffPortraitGenerator.LoadPortrait(candidate.staffName, role.ToString());
+                    break;
+
+                case CampaignRole.Field:
+                    fieldBlank.sprite = StaffPortraitGenerator.LoadPortrait(candidate.staffName, role.ToString());
+                    break;
+
+                case CampaignRole.Communications:
+                    comBlank.sprite = StaffPortraitGenerator.LoadPortrait(candidate.staffName, role.ToString());
+                    break;
+            }
+        }
 
         label.text = action.actionName;
     }

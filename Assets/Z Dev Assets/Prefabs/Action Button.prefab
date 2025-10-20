@@ -989,6 +989,9 @@ MonoBehaviour:
   fieldFrameColor: {r: 0.29411766, g: 0.3254902, b: 0.1254902, a: 1}
   comFrameImg: {fileID: 7394365275171643958}
   comFrameColor: {r: 0, g: 0.38431373, b: 0.60784316, a: 1}
+  finBlank: {fileID: 7442966384747978320}
+  fieldBlank: {fileID: 167496350777352240}
+  comBlank: {fileID: 3107658430683351259}
 --- !u!114 &1568377538160891957
 MonoBehaviour:
   m_ObjectHideFlags: 0

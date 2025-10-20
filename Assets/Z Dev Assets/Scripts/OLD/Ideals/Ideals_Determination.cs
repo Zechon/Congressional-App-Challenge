@@ -139,7 +139,7 @@ public class Ideal_Determination : MonoBehaviour
 
     private IEnumerator FadeOut()
     {
-        GameData.wghdIdeals = weighedIdeals;
+        //GameData.wghdIdeals = weighedIdeals;
 
         if (OrangeLeaning) { GameData.Party = "Orange"; }
         else { GameData.Party = "Purple"; }

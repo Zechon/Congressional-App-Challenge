@@ -41,6 +41,8 @@ public class CandidateGenerator : MonoBehaviour
         misc2Render.color = data.tempMisc2Color;
     }
 
+    private StaffData currentStaff;
+
     public void SetupCandidate(StaffData data)
     {
         if (tempLooks.TryGetValue(data, out TempLook look))
@@ -62,6 +64,11 @@ public class CandidateGenerator : MonoBehaviour
         {
             PreviewCandidate(data);
         }
+    }
+
+    public string GetStaffName()
+    {
+        return currentStaff != null ? currentStaff.staffName : "UnknownStaff";
     }
 
     private void ApplyLook(TempLook look)

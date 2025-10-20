@@ -8,7 +8,7 @@ public class StaffPortraitGenerator : MonoBehaviour
     [SerializeField] private Canvas sourceCanvas;
     [SerializeField] private Vector2 renderResolution = new Vector2(512, 512);
 
-    public Sprite GeneratePortrait(GameObject uiPrefab, string staffName, RectTransform rect)
+    public Sprite GeneratePortrait(GameObject uiPrefab, string staffName, RectTransform rect, string staffRole = "General")
     {
         if (uiPrefab == null || rect == null)
         {
@@ -83,28 +83,28 @@ public class StaffPortraitGenerator : MonoBehaviour
         rt.Release();
         uiPrefab.SetActive(wasActive);
 
-        string folderPath = Application.dataPath + "/SavedPortraits/";
-        if (!System.IO.Directory.Exists(folderPath))
-            System.IO.Directory.CreateDirectory(folderPath);
+        string folderPath = Path.Combine(Application.dataPath, "SavedPortraits", staffRole);
+        if (!Directory.Exists(folderPath))
+            Directory.CreateDirectory(folderPath);
 
         string fileName = staffName.Replace(" ", "_") + ".png";
-        string fullPath = folderPath + fileName;
+        string fullPath = Path.Combine(folderPath, fileName);
 
         byte[] pngData = croppedTex.EncodeToPNG();
-        System.IO.File.WriteAllBytes(fullPath, pngData);
+        File.WriteAllBytes(fullPath, pngData);
         Debug.Log($"Saved cropped portrait: {fullPath}");
 
         return Sprite.Create(croppedTex, new Rect(0, 0, croppedTex.width, croppedTex.height), new Vector2(0.5f, 0.5f), 100f);
     }
 
 
-    public static Sprite LoadPortrait(string staffName)
+    public static Sprite LoadPortrait(string staffName, string staffRole)
     {
-        string path = Path.Combine(Application.persistentDataPath, "StaffPortraits", staffName.Replace(" ", "_") + ".png");
+        string path = Path.Combine(Application.persistentDataPath, "Portraits", staffRole, staffName.Replace(" ", "_") + ".png");
 
         if (!File.Exists(path))
         {
-            Debug.LogWarning("Portrait not found for " + staffName);
+            Debug.LogWarning($"Portrait not found for {staffName} in role {staffRole}");
             return null;
         }
 
@@ -114,4 +114,5 @@ public class StaffPortraitGenerator : MonoBehaviour
 
         return Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100f);
     }
+
 }
