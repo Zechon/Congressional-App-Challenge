@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,28 +7,43 @@ public class GamePhaseManager : MonoBehaviour
 
     [Header("Game Settings")]
     public int totalWeeks = 4;
-    public int currentWeek = 1;
-    public int playerBudget = 100; // this is a placeholder budget amt, idk what to actually use yet.
+    public int totalMonths = 8;
 
-    [Header("Animations")]
+    [Header("Runtime Tracking")]
+    public int currentWeek = 1;
+    public int currentMonth = 1;
+    public int playerBudget = 100;
+
+    [Header("Animations / UI")]
     public Animator anim;
 
     [Header("Tracking")]
     public List<PlannedAction> plannedActions = new List<PlannedAction>();
+
+    private bool inResultsPhase = false;
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-
-            anim.SetInteger("Week", 1);
+            if (anim != null)
+                anim.SetInteger("Week", currentWeek);
         }
-        else Destroy(gameObject);
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void ConfirmAction(string stateName, string actionName, int cost)
     {
+        if (inResultsPhase)
+        {
+            Debug.LogWarning("Cannot plan actions during Results Phase!");
+            return;
+        }
+
         if (playerBudget < cost)
         {
             Debug.LogWarning("Not Enough Budget!");
@@ -41,12 +55,19 @@ public class GamePhaseManager : MonoBehaviour
         var action = new PlannedAction(stateName, actionName, cost, currentWeek);
         plannedActions.Add(action);
 
-        Debug.Log($"[WEEK {currentWeek}] Planned {actionName} in {stateName}. (Cost: {cost})");
+        Debug.Log($"[Month {currentMonth} | Week {currentWeek}] Planned {actionName} in {stateName}. (Cost: {cost})");
 
+        // Move to next week or phase
         if (currentWeek < totalWeeks)
         {
             currentWeek++;
-            Debug.Log($"Now moving to Week {currentWeek}.");
+            anim?.SetInteger("Week", currentWeek);
+
+            if (currentWeek == 4)
+            {
+                Debug.Log("Triggering Press Conference!");
+                PressConferenceManager.instance?.StartConference();
+            }
         }
         else
         {
@@ -56,7 +77,27 @@ public class GamePhaseManager : MonoBehaviour
 
     private void EndPlanningPhase()
     {
-        Debug.Log("All Weeks Planned! Moving to results.");
-        // TODO: THE ACTUAL RESULTS PHASE
+        Debug.Log($"Month {currentMonth} complete! Moving to results slideshow.");
+        inResultsPhase = true;
+        ResultsPhaseUI.instance?.Show(plannedActions, OnResultsComplete);
+    }
+
+    private void OnResultsComplete()
+    {
+        inResultsPhase = false;
+        plannedActions.Clear();
+
+        if (currentMonth < totalMonths)
+        {
+            currentMonth++;
+            currentWeek = 1;
+            anim?.SetInteger("Week", currentWeek);
+            Debug.Log($"--- Beginning Month {currentMonth} ---");
+        }
+        else
+        {
+            Debug.Log("All 8 months complete — election results phase!");
+            // TODO: final election results phase
+        }
     }
 }

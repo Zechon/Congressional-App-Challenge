@@ -40,7 +40,7 @@ public class ActionDatabase : ScriptableObject
 
         [Header("Base Values")]
         public int baseCost;
-        public int baseEffect;
+        public float baseEffect;
         [Range(0f, 1f)] public float successChance = 1f;
 
         [Header("Staff Modifiers")]

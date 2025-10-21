@@ -1,19 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class PlannedAction
 {
     public string stateName;
     public string actionName;
     public int cost;
-    public int weekNumber;
+    public int week;
 
-    public PlannedAction(string stateName, string actionName, int cost, int weekNumber)
+    public float effect; 
+
+    public PlannedAction(string stateName, string actionName, int cost, int week, float effect = 0f)
     {
         this.stateName = stateName;
         this.actionName = actionName;
         this.cost = cost;
-        this.weekNumber = weekNumber;
+        this.week = week;
+        this.effect = effect;
     }
 }

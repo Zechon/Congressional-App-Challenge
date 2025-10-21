@@ -24,6 +24,7 @@ public class StateUIManager : MonoBehaviour
 
     [Header("Layers")]
     [SerializeField] private Transform mapLayer;
+    public Transform MapLayer => mapLayer;
     [SerializeField] private Transform floatingLayer;
 
     private StateSetup currentSelected;

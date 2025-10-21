@@ -34397,7 +34397,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalWeeks: 4
+  totalMonths: 8
   currentWeek: 1
+  currentMonth: 1
   playerBudget: 100
   anim: {fileID: 985086033}
 --- !u!1 &1837250185
@@ -35775,7 +35777,7 @@ MonoBehaviour:
   scrollRect: {fileID: 1139292699}
   contentParent: {fileID: 171138068}
   actionButtonPrefab: {fileID: 4508665010629409430, guid: c20305e86e0845646a8b43cbd8e57cde, type: 3}
-  actionDatabase: {fileID: 11400000, guid: 036958d129aa1574b8fa84af058b21b3, type: 2}
+  actionDatabase: {fileID: 11400000, guid: b3f94c5109e40b14c8a2e03700dfac9c, type: 2}
 --- !u!1 &2106868832
 GameObject:
   m_ObjectHideFlags: 0

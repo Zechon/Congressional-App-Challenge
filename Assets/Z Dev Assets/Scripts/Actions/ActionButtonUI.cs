@@ -51,46 +51,67 @@ public class ActionButtonUI : MonoBehaviour
 
         var result = ActionModifierUtility.ApplyModifiers(action);
 
+        // Cost display
         bool costChanged = Mathf.Abs(result.modifiedCost - action.baseCost) > 0.1f;
-
         string costText = costChanged
             ? $"<s>${action.baseCost}K</s> ${result.modifiedCost:0}K"
             : $"${action.baseCost}K";
-
         costTxt.text = "Cost: " + costText;
         costImg.color = costColor;
-        effectTxt.text = $"Effect: {result.modifiedEffect:+0;-0}K";
+
+        // Effect display, category-aware with percentages where appropriate
+        string effectText = action.category switch
+        {
+            ActionDatabase.EffectCategory.Money => $"Effect: ${result.modifiedEffect:0}K",
+            ActionDatabase.EffectCategory.VoterSway =>
+                $"Effect: {result.modifiedEffect * 100f:0.#}% of state voters",
+            ActionDatabase.EffectCategory.InternalPrep =>
+                $"Effect: {result.modifiedEffect * 100f:0.#}% morale",
+            ActionDatabase.EffectCategory.PR =>
+                $"Effect: {result.modifiedEffect * 100f:0.#}% favor",
+            ActionDatabase.EffectCategory.Logistics =>
+                $"Effect: {result.modifiedEffect * 100f:0.#}% efficiency",
+            _ => $"Effect: {result.modifiedEffect:+0;-0}"
+        };
+
+        effectTxt.text = effectText;
         effectImg.color = effectColor;
+
+
+
+        // Success chance display
         successTxt.text = $"Chance: {result.modifiedSuccessChance * 100f:0}%";
         successImg.color = successColor;
+
+        // Time display (placeholder)
         timeTxt.text = "Time Needed: —";
         timeImg.color = timeColor;
+
+        // Staff frames
         finFrameImg.color = finFrameColor;
         fieldFrameImg.color = fieldFrameColor;
         comFrameImg.color = comFrameColor;
 
+        // Staff portraits
         foreach (var candidate in GameData.HiredStaff)
         {
-            var role = candidate.role;
-
-            switch (role)
+            switch (candidate.role)
             {
                 case CampaignRole.Finance:
-                    finBlank.sprite = StaffPortraitGenerator.LoadPortrait(candidate.staffName, role.ToString());
+                    finBlank.sprite = StaffPortraitGenerator.LoadPortrait(candidate.staffName, "Finance");
                     break;
-
                 case CampaignRole.Field:
-                    fieldBlank.sprite = StaffPortraitGenerator.LoadPortrait(candidate.staffName, role.ToString());
+                    fieldBlank.sprite = StaffPortraitGenerator.LoadPortrait(candidate.staffName, "Field");
                     break;
-
                 case CampaignRole.Communications:
-                    comBlank.sprite = StaffPortraitGenerator.LoadPortrait(candidate.staffName, role.ToString());
+                    comBlank.sprite = StaffPortraitGenerator.LoadPortrait(candidate.staffName, "Communications");
                     break;
             }
         }
 
         label.text = action.actionName;
     }
+
 
 
     public void OnClick()
