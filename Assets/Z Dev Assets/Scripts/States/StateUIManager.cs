@@ -41,7 +41,6 @@ public class StateUIManager : MonoBehaviour
         selectedEcoText.text = "";
         prcntText.text = "";
         ttlVotes.text = "";
-        selectedPanel.SetActive(false);
     }
 
     void Update()
@@ -114,10 +113,6 @@ public class StateUIManager : MonoBehaviour
                     .SetLoops(-1, LoopType.Yoyo)
                     .SetEase(Ease.InOutSine);
             });
-
-        selectedPanel.SetActive(true);
-
-        ActionPanelUI.instance.Show(state);
     }
 
     public void DeselectState()

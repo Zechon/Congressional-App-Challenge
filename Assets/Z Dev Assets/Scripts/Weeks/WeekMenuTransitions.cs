@@ -14,6 +14,8 @@ public class WeekMenuTransitions : MonoBehaviour, IPointerEnterHandler, IPointer
     private Image btnImg;
     private Animator btnAnim;
 
+    public bool actMenu = false;
+
     private void Start()
     {
         tabAnim = Tab.GetComponent<Animator>();
@@ -46,5 +48,21 @@ public class WeekMenuTransitions : MonoBehaviour, IPointerEnterHandler, IPointer
     {
         if (btnAnim.GetBool("Hover") == true)
             btnAnim.SetBool("Hover", false);
+    }
+
+    public void ActionMenuToggle()
+    {
+        if (actMenu)
+        {
+            tabAnim.SetBool("Rising", true);
+            btnAnim.SetTrigger("Switch");
+            actMenu = false;
+        }
+        else
+        {
+            tabAnim.SetBool("Rising", false);
+            btnAnim.SetTrigger("Switch");
+            actMenu = true;
+        }
     }
 }

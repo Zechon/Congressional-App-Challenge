@@ -16,6 +16,10 @@ public class ResultsPhaseUI : MonoBehaviour
     public TMP_Text descriptionText;
     public Button nextButton;
 
+    [Header("Stuff to Disable")]
+    public GameObject ActionPanel;
+    public GameObject InfoPanel;
+
     private Queue<PlannedAction> queuedResults = new();
     private System.Action onComplete;
 
@@ -29,6 +33,9 @@ public class ResultsPhaseUI : MonoBehaviour
 
     public void Show(List<PlannedAction> actions, System.Action onFinished)
     {
+        ActionPanel.SetActive(false);
+        InfoPanel.SetActive(false);
+
         if (actions.Count == 0)
         {
             onFinished?.Invoke();
