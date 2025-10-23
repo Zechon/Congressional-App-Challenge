@@ -149,7 +149,7 @@ public class DefaultActionDatabase : ActionDatabase
             {
                 actionName = "Internal Audit",
                 description = "Review finances and prep internal operations; improves efficiency and budget.",
-                category = EffectCategory.Logistics,
+                category = EffectCategory.InternalPrep,
                 baseCost = 0,
                 baseEffect = 10000, // bonus money next week
                 successChance = 1f,

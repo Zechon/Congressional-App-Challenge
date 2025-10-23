@@ -27,7 +27,6 @@ public class ActionDatabase : ScriptableObject
         VoterSway,      // Shifts votes or public support
         InternalPrep,   // Internal buffs, strategic preparation
         PR,             // Public relations or media impact
-        Logistics,      // Improves efficiency or cost reductions
     }
 
     [System.Serializable]

@@ -66,12 +66,9 @@ public class ActionButtonUI : MonoBehaviour
             ActionDatabase.EffectCategory.VoterSway =>
                 $"Effect: {result.modifiedEffect * 100f:0.#}% of state voters",
             ActionDatabase.EffectCategory.InternalPrep =>
-                $"Effect: {result.modifiedEffect * 100f:0.#}% morale",
-            ActionDatabase.EffectCategory.PR =>
-                $"Effect: {result.modifiedEffect * 100f:0.#}% favor",
-            ActionDatabase.EffectCategory.Logistics =>
                 $"Effect: {result.modifiedEffect * 100f:0.#}% efficiency",
-            _ => $"Effect: {result.modifiedEffect:+0;-0}"
+            ActionDatabase.EffectCategory.PR =>
+                $"Effect: {result.modifiedEffect * 100f:0.#}% favor"
         };
 
         effectTxt.text = effectText;
@@ -131,7 +128,6 @@ public class ActionButtonUI : MonoBehaviour
             ActionDatabase.EffectCategory.VoterSway => new Color(0.4f, 0.8f, 1f),
             ActionDatabase.EffectCategory.InternalPrep => new Color(0.7f, 0.5f, 1f),
             ActionDatabase.EffectCategory.PR => new Color(1f, 0.6f, 0.3f),
-            ActionDatabase.EffectCategory.Logistics => new Color(0.3f, 0.9f, 0.5f),
             _ => Color.white
         };
     }
