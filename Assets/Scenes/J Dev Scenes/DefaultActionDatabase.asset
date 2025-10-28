@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f286f6e99e0914fb651104eda1169d, type: 3}
+  m_Name: DefaultActionDatabase
+  m_EditorClassIdentifier: 
+  actions:
+  - actionName: Fundraiser
+    description: Organize a fundraising event to generate campaign funds.
+    category: 0
+    baseCost: 25000
+    baseEffect: 35000
+    successChance: 1
+    modifiers:
+    - staffName: 
+      role: 0
+      type: 1
+      value: 0.25
+    - staffName: 
+      role: 2
+      type: 1
+      value: 0.05
+    - staffName: 
+      role: 1
+      type: 1
+      value: 0.05
+  - actionName: Corporate Luncheon
+    description: Exclusive event for high donors; risky if PR is low.
+    category: 0
+    baseCost: 20000
+    baseEffect: 20000
+    successChance: 0.9
+    modifiers:
+    - staffName: 
+      role: 0
+      type: 1
+      value: 0.15
+    - staffName: 
+      role: 1
+      type: 2
+      value: 0.05
+  - actionName: Grassroots Drive
+    description: Community donation drive to boost small-scale contributions.
+    category: 0
+    baseCost: 10000
+    baseEffect: 12000
+    successChance: 1
+    modifiers:
+    - staffName: 
+      role: 2
+      type: 1
+      value: 0.05
+    - staffName: 
+      role: 1
+      type: 1
+      value: 0.05
+  - actionName: Parade / Rally
+    description: Public rally to boost visibility and voter support.
+    category: 1
+    baseCost: 30000
+    baseEffect: 0.04
+    successChance: 0.95
+    modifiers:
+    - staffName: 
+      role: 2
+      type: 1
+      value: 0.1
+    - staffName: 
+      role: 1
+      type: 1
+      value: 0.15
+  - actionName: Town Hall Meeting
+    description: Local meeting to address issues and engage voters directly.
+    category: 1
+    baseCost: 15000
+    baseEffect: 0.03
+    successChance: 1
+    modifiers:
+    - staffName: 
+      role: 2
+      type: 1
+      value: 0.05
+    - staffName: 
+      role: 1
+      type: 1
+      value: 0.02
+  - actionName: Rumor Campaign
+    description: Spread rumors to sway voters; risky but potentially effective.
+    category: 1
+    baseCost: 35000
+    baseEffect: 0.05
+    successChance: 0.85
+    modifiers:
+    - staffName: 
+      role: 1
+      type: 1
+      value: 0.15
+  - actionName: Humanitarian Aid
+    description: Donate to disaster victims to improve public perception.
+    category: 3
+    baseCost: 25000
+    baseEffect: 0.04
+    successChance: 1
+    modifiers:
+    - staffName: 
+      role: 2
+      type: 1
+      value: 0.05
+    - staffName: 
+      role: 1
+      type: 1
+      value: 0.1
+  - actionName: Community Clean-Up
+    description: Small local volunteer event to boost goodwill and PR.
+    category: 3
+    baseCost: 10000
+    baseEffect: 0.02
+    successChance: 1
+    modifiers:
+    - staffName: 
+      role: 2
+      type: 1
+      value: 0.03
+    - staffName: 
+      role: 1
+      type: 1
+      value: 0.05
+  - actionName: Opposition Research
+    description: Gather dirt on rivals; boosts next press event and efficiency.
+    category: 2
+    baseCost: 25000
+    baseEffect: 0.02
+    successChance: 0.95
+    modifiers:
+    - staffName: 
+      role: 0
+      type: 0
+      value: -0.1
+    - staffName: 
+      role: 1
+      type: 1
+      value: 0.1
+  - actionName: Internal Audit
+    description: Review finances and prep internal operations; improves efficiency
+      and budget.
+    category: 2
+    baseCost: 0
+    baseEffect: 10000
+    successChance: 1
+    modifiers:
+    - staffName: 
+      role: 0
+      type: 1
+      value: 0.15
