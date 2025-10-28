@@ -60,7 +60,7 @@ public class ActionButtonUI : MonoBehaviour
         costImg.color = costColor;
 
         // Effect display, category-aware with percentages where appropriate
-        string effectText = action.category switch
+        string v = action.category switch
         {
             ActionDatabase.EffectCategory.Money => $"Effect: ${result.modifiedEffect:0}K",
             ActionDatabase.EffectCategory.VoterSway =>
@@ -68,8 +68,10 @@ public class ActionButtonUI : MonoBehaviour
             ActionDatabase.EffectCategory.InternalPrep =>
                 $"Effect: {result.modifiedEffect * 100f:0.#}% efficiency",
             ActionDatabase.EffectCategory.PR =>
-                $"Effect: {result.modifiedEffect * 100f:0.#}% favor"
+                $"Effect: {result.modifiedEffect * 100f:0.#}% favor",
+            _ => throw new System.NotImplementedException()
         };
+        string effectText = v;
 
         effectTxt.text = effectText;
         effectImg.color = effectColor;
