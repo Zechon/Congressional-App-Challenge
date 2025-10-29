@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7f16ce55a49c19043a24116639b1ffb3
+guid: 6ba82f5b47bc37042b9220f79dee60f3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tablet_Down_0
+      name: Tablet_REVAMPED_InfoPanel_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 64
-        height: 32
+        y: 25
+        width: 14
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f1ab4abd4b52e04a91f441c2b46f694
-      internalID: 1232525083
+      spriteID: 5252ac10a2e2d984983ce210ffb17003
+      internalID: 251283953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tablet_Down_1
+      name: Tablet_REVAMPED_InfoPanel_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 32
+        x: 14
+        y: 25
+        width: 14
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bfbcedce6c87bb4da4eb76673d4264b
-      internalID: -86099944
+      spriteID: fd71f43bc93fc914ebe7195c373793d9
+      internalID: -1917391126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tablet_Down_2
+      name: Tablet_REVAMPED_InfoPanel_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 64
-        height: 32
+        x: 28
+        y: 25
+        width: 14
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,41 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68da431e40a652b4795667f65d33641f
-      internalID: -895923324
+      spriteID: 195bcbefe7725fe49aa98a5ec94c7924
+      internalID: -1836577270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tablet_Down_3
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 108f449464815f94db6877ec8759494c
-      internalID: 1322018994
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tablet_Down_4
+      name: Tablet_REVAMPED_InfoPanel_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 32
+        width: 14
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6229a40eff38344fb15e35d7f736db1
-      internalID: 1845788371
+      spriteID: 30944e6c958597e48a1c85caf9dc3cd8
+      internalID: 1771507305
       vertices: []
       indices: 
       edges: []
@@ -212,11 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tablet_Down_0: 1232525083
-      Tablet_Down_1: -86099944
-      Tablet_Down_2: -895923324
-      Tablet_Down_3: 1322018994
-      Tablet_Down_4: 1845788371
+      Tablet_REVAMPED_InfoPanel_0: 251283953
+      Tablet_REVAMPED_InfoPanel_1: -1917391126
+      Tablet_REVAMPED_InfoPanel_2: -1836577270
+      Tablet_REVAMPED_InfoPanel_3: 1771507305
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

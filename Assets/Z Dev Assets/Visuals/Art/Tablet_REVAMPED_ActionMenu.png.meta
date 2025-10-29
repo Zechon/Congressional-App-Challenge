@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5a60abc1deb923f4bae67a10aa61e84d
+guid: 36b107f67fe59014f8d4684cd718af37
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,139 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BUTTONS_0
+      name: Tablet_REVAMPED_ActionMenu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 72
+        width: 40
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5132e58ce16e0e94b92746492d036652
+      internalID: -2120585046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_REVAMPED_ActionMenu_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 72
+        width: 40
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e1e175a222dd4c4b9d077a79ed7276a
+      internalID: -466054836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_REVAMPED_ActionMenu_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 72
+        width: 40
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 030b1b58fe36f644d9d1cf4efebaef62
+      internalID: -1425184679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_REVAMPED_ActionMenu_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 40
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 223d395dd7717f045bdeed8048d4e9a2
+      internalID: 28253650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_REVAMPED_ActionMenu_4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 48
+        width: 40
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abb48269ed660884b83db6f3aa216f25
+      internalID: 2065073121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_REVAMPED_ActionMenu_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 40
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a0c70c43d899714ba2c67a6bbbbc58e
+      internalID: -1457554350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_REVAMPED_ActionMenu_6
       rect:
         serializedVersion: 2
         x: 0
         y: 24
-        width: 9
-        height: 6
+        width: 40
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1f2b68581793d841b275f19cbd13cc7
-      internalID: 185332715
+      spriteID: 8e5b8de06bdf5e04fa68a6262bd1f227
+      internalID: -253613049
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BUTTONS_1
+      name: Tablet_REVAMPED_ActionMenu_7
       rect:
         serializedVersion: 2
-        x: 9
+        x: 40
         y: 24
-        width: 9
-        height: 6
+        width: 40
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9afc3b460f712ac4c9c7de7e384e06b9
-      internalID: -1880108390
+      spriteID: a4827b34aad132841bb7753ddf1d4af5
+      internalID: -1846924072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BUTTONS_2
+      name: Tablet_REVAMPED_ActionMenu_8
       rect:
         serializedVersion: 2
-        x: 18
+        x: 80
         y: 24
-        width: 9
-        height: 6
+        width: 40
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,209 +279,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b562e33022be3340af632027830b558
-      internalID: -1119992216
+      spriteID: ae02ab8e074ce074aac07698237e2df2
+      internalID: -1892054286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BUTTONS_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 18
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2e1f26bf093bc7f4bbb79b8f3bdcfdaf
-      internalID: -1205849418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BUTTONS_4
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 18
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 93e2aa57ec0baf54692f5f3315ab8f5c
-      internalID: 125914548
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BUTTONS_5
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 18
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fcbeeb60e9a80e74aa437668b610fdad
-      internalID: 1820091740
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BUTTONS_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 12
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f3ddc651c86b2545a54d0b21e5c3b92
-      internalID: -1584477520
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BUTTONS_7
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 12
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2da3d28a0716a884bb72db47ccbcc916
-      internalID: -2075854119
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BUTTONS_8
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 12
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf2530d459a55f244937cbb9809b6c3f
-      internalID: -730899530
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BUTTONS_9
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 6
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ec71e2a55f58d34aad780408dec6233
-      internalID: -53488249
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BUTTONS_10
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 6
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: db31070cd6977c3428f762eca7bc1a16
-      internalID: -1831991724
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BUTTONS_11
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 6
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e78128b856f445648bd44780cc46b5ea
-      internalID: 415086047
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BUTTONS_12
+      name: Tablet_REVAMPED_ActionMenu_9
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 9
-        height: 6
+        width: 40
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,8 +300,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16701bb5e2cd8794a96fa772646b5f14
-      internalID: 1326381471
+      spriteID: 38837d7a94dc90a4a984136943649dd9
+      internalID: 1182940328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_REVAMPED_ActionMenu_10
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 40
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b11fe182eae14fa48ac504e1516a7d0f
+      internalID: -1626775548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_REVAMPED_ActionMenu_11
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 40
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530e02c25a56b3f43acf6e3fa645799a
+      internalID: 1044753425
       vertices: []
       indices: 
       edges: []
@@ -380,19 +359,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BUTTONS_0: 185332715
-      BUTTONS_1: -1880108390
-      BUTTONS_10: -1831991724
-      BUTTONS_11: 415086047
-      BUTTONS_12: 1326381471
-      BUTTONS_2: -1119992216
-      BUTTONS_3: -1205849418
-      BUTTONS_4: 125914548
-      BUTTONS_5: 1820091740
-      BUTTONS_6: -1584477520
-      BUTTONS_7: -2075854119
-      BUTTONS_8: -730899530
-      BUTTONS_9: -53488249
+      Tablet_REVAMPED_ActionMenu_0: -2120585046
+      Tablet_REVAMPED_ActionMenu_1: -466054836
+      Tablet_REVAMPED_ActionMenu_10: -1626775548
+      Tablet_REVAMPED_ActionMenu_11: 1044753425
+      Tablet_REVAMPED_ActionMenu_2: -1425184679
+      Tablet_REVAMPED_ActionMenu_3: 28253650
+      Tablet_REVAMPED_ActionMenu_4: 2065073121
+      Tablet_REVAMPED_ActionMenu_5: -1457554350
+      Tablet_REVAMPED_ActionMenu_6: -253613049
+      Tablet_REVAMPED_ActionMenu_7: -1846924072
+      Tablet_REVAMPED_ActionMenu_8: -1892054286
+      Tablet_REVAMPED_ActionMenu_9: 1182940328
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
