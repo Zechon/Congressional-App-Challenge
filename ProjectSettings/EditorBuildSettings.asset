@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Z Dev Assets/Dev Scenes/Z Dev DiffSeed.unity
     guid: 2b5065fe50094334f9ebe4a26583dcac
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PartyScene.unity
     guid: d50a9fb1b6faf7c4fb566c015bdb5e62
   - enabled: 0
