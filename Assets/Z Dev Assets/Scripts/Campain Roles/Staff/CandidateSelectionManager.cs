@@ -30,23 +30,10 @@ public class CandidateSelectionManager : MonoBehaviour
     [SerializeField] private GameObject fadeOverlay;
     [SerializeField] private float fadeDuration = 0.3f;
 
-    [Header("Portrait Generation")]
-    [SerializeField] private StaffPortraitGenerator portrait;
-
-    [Header("Final Display")]
-    [SerializeField] private GameObject finalDisplayPanel;
-    [SerializeField] private Transform finalDisplayContainer;
-    [SerializeField] private GameObject candidateDisplayPrefab;
-
     void Start()
     {
-        if (portrait == null)
-            portrait = FindObjectOfType<StaffPortraitGenerator>();
-
         selectButton.onClick.AddListener(OnSelectPressed);
         confirmButton.onClick.AddListener(OnConfirmPressed);
-
-        finalDisplayPanel.SetActive(false);
 
         UpdateBudgetUI();
         StartCoroutine(InitializeAfterFadeIn());
@@ -158,56 +145,7 @@ public class CandidateSelectionManager : MonoBehaviour
 
         SaveSelectedCandidates();
 
-        StartCoroutine(ShowFinalDisplayAndCapture());
-    }
-
-    private IEnumerator ShowFinalDisplayAndCapture()
-    { 
-        carousel.gameObject.SetActive(false);
-        selectButton.gameObject.SetActive(false);
-        confirmButton.gameObject.SetActive(false);
-
-        finalDisplayPanel.SetActive(true);
-
-        foreach (Transform child in finalDisplayContainer)
-            Destroy(child.gameObject);
-
-        foreach (var kv in selectedCandidates)
-        {
-            var candidate = kv.Value;
-            var obj = Instantiate(candidateDisplayPrefab, finalDisplayContainer);
-            var gen = obj.GetComponent<CandidateGenerator>();
-            if (gen != null)
-                gen.SetupCandidate(candidate);
-        }
-
-        foreach (var kv in selectedCandidates)
-        {
-            var role = kv.Key;
-            var candidate = kv.Value;
-
-            var obj = FindCandidateDisplay(candidate.staffName);
-            if (obj != null)
-            {
-                var rect = obj.GetComponent<RectTransform>();
-                portrait.GeneratePortrait(obj, candidate.staffName, rect, candidate.role.ToString());
-            }
-        }
-
-        yield return new WaitForSeconds(0.25f);
-
         StartCoroutine(FadeOut());
-    }
-
-    private GameObject FindCandidateDisplay(string name)
-    {
-        foreach (Transform child in finalDisplayContainer)
-        {
-            var gen = child.GetComponent<CandidateGenerator>();
-            if (gen != null && gen.GetStaffName() == name)
-                return child.gameObject;
-        }
-        return null;
     }
 
     private void UpdateBudgetUI()
@@ -223,7 +161,9 @@ public class CandidateSelectionManager : MonoBehaviour
 
     private IEnumerator FadeOut()
     {
-        yield return new WaitForSeconds(1f);
+        GameData.RunSeed = SeedManager.Seed;
+
+        yield return new WaitForSeconds(2);
 
         fadeOverlay.SetActive(true);
         fadeOverlay.GetComponent<CanvasGroup>().DOFade(1f, fadeDuration);
@@ -246,6 +186,9 @@ public class CandidateSelectionManager : MonoBehaviour
         }
 
         op.allowSceneActivation = true;
+
         yield return null;
+
+        Debug.Log("Scene is fully loaded and initialized!");
     }
 }

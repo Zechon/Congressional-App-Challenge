@@ -35,9 +35,6 @@ public class ActionButtonUI : MonoBehaviour
     [SerializeField] private Color fieldFrameColor;
     [SerializeField] private Image comFrameImg;
     [SerializeField] private Color comFrameColor;
-    [SerializeField] private Image finBlank;
-    [SerializeField] private Image fieldBlank;
-    [SerializeField] private Image comBlank;
 
     private ActionDatabase.CampaignAction actionData;
 
@@ -51,7 +48,6 @@ public class ActionButtonUI : MonoBehaviour
 
         var result = ActionModifierUtility.ApplyModifiers(action);
 
-        // Cost display
         bool costChanged = Mathf.Abs(result.modifiedCost - action.baseCost) > 0.1f;
         string costText = costChanged
             ? $"<s>${action.baseCost}K</s> ${result.modifiedCost:0}K"
@@ -59,7 +55,6 @@ public class ActionButtonUI : MonoBehaviour
         costTxt.text = "Cost: " + costText;
         costImg.color = costColor;
 
-        // Effect display, category-aware with percentages where appropriate
         string v = action.category switch
         {
             ActionDatabase.EffectCategory.Money => $"Effect: ${result.modifiedEffect:0}K",
@@ -76,37 +71,15 @@ public class ActionButtonUI : MonoBehaviour
         effectTxt.text = effectText;
         effectImg.color = effectColor;
 
-
-
-        // Success chance display
         successTxt.text = $"Chance: {result.modifiedSuccessChance * 100f:0}%";
         successImg.color = successColor;
 
-        // Time display (placeholder)
-        timeTxt.text = "Time Needed: —";
+        timeTxt.text = "Time Needed: 1 Week";
         timeImg.color = timeColor;
 
-        // Staff frames
         finFrameImg.color = finFrameColor;
         fieldFrameImg.color = fieldFrameColor;
         comFrameImg.color = comFrameColor;
-
-        // Staff portraits
-        foreach (var candidate in GameData.HiredStaff)
-        {
-            switch (candidate.role)
-            {
-                case CampaignRole.Finance:
-                    finBlank.sprite = StaffPortraitGenerator.LoadPortrait(candidate.staffName, "Finance");
-                    break;
-                case CampaignRole.Field:
-                    fieldBlank.sprite = StaffPortraitGenerator.LoadPortrait(candidate.staffName, "Field");
-                    break;
-                case CampaignRole.Communications:
-                    comBlank.sprite = StaffPortraitGenerator.LoadPortrait(candidate.staffName, "Communications");
-                    break;
-            }
-        }
 
         label.text = action.actionName;
     }

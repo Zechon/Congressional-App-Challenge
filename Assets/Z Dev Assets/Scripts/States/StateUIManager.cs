@@ -12,7 +12,6 @@ public class StateUIManager : MonoBehaviour
     public TMP_Text p;
     public TMP_Text o;
     public TMP_Text t;
-    public TMP_Text ttlVotes;
 
     [Header("Selection Settings")]
     public float selectedScale = 1.15f;
@@ -81,7 +80,9 @@ public class StateUIManager : MonoBehaviour
             _ => "Economy: Unknown"
         };
 
-        //ttlVotes.text = state.stateVotes.ToString();
+        p.text = (Mathf.FloorToInt(state.stateVotes * currentSelected.purplePercent)).ToString();
+        o.text = (state.stateVotes - Mathf.FloorToInt(state.stateVotes * currentSelected.purplePercent)).ToString();
+        t.text = state.stateVotes.ToString();
 
         originalScaleSelected = state.transform.localScale;
         originalSiblingSelected = state.transform.GetSiblingIndex();
