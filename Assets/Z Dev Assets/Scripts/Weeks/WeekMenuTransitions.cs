@@ -4,65 +4,60 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class WeekMenuTransitions : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class WeekMenuTransitions : MonoBehaviour
 {
-    [Header("Other References")]
-    public GameObject Tab;
-    private Animator tabAnim;
+    [Header("References")]
     public GameObject ActPnl;
-
-    private Image btnImg;
-    private Animator btnAnim;
+    public Animator anim;
+    public GameObject WPnl;
+    public Animator wAnim;
 
     public bool actMenu = false;
 
     private void Start()
     {
-        tabAnim = Tab.GetComponent<Animator>();
-        btnImg = GetComponent<Image>();
-        btnAnim = GetComponent<Animator>();
+       anim = ActPnl.GetComponent<Animator>();
+       wAnim = WPnl.GetComponent<Animator>();
+
+       StartCoroutine(StartTimer());
     }
 
-    public void StateMenuRiseFall()
+    public IEnumerator StartTimer()
     {
-        if (tabAnim.GetBool("Rising") == false)
-        {
-            tabAnim.SetBool("Rising", true);
-            btnAnim.SetTrigger("Switch");
-        }
-
-        else
-        {
-            tabAnim.SetBool("Rising", false);
-            btnAnim.SetTrigger("Switch");
-        }
+        yield return new WaitForSeconds(1);
+        WeekSwitch();
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void ActionMenuOn()
+        { 
+            if (StateUIManager.Instance != null && ActionPanelUI.instance != null)
+            {
+                var selectedState = StateUIManager.Instance.GetCurrentSelectedState();
+
+                if (selectedState != null)
+                {
+                    ActionPanelUI.instance.Show(selectedState);
+                }
+                else
+                {
+                    Debug.LogWarning("No state is currently selected — cannot open Action Panel.");
+                    actMenu = false;
+                    return;
+                }
+            }
+
+            ActPnl.SetActive(true);
+        }
+
+    public void ActionMenuOff()
     {
-        if (btnAnim.GetBool("Hover") == false)
-            btnAnim.SetBool("Hover", true);
+        ActionPanelUI.instance.Hide();
+
+        ActPnl.SetActive(false);
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public void WeekSwitch()
     {
-        if (btnAnim.GetBool("Hover") == true)
-            btnAnim.SetBool("Hover", false);
-    }
-
-    public void ActionMenuToggle()
-    {
-        if (actMenu)
-        {
-            tabAnim.SetBool("Rising", true);
-            btnAnim.SetTrigger("Switch");
-            actMenu = false;
-        }
-        else
-        {
-            tabAnim.SetBool("Rising", false);
-            btnAnim.SetTrigger("Switch");
-            actMenu = true;
-        }
+        wAnim.SetTrigger("Switch");
     }
 }

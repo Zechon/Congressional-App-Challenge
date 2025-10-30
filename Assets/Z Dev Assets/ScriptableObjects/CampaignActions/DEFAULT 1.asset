@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f286f6e99e0914fb651104eda1169d, type: 3}
+  m_Name: DEFAULT 1
+  m_EditorClassIdentifier: 
+  actions:
+  - actionName: Local Fundraiser
+    description: Host a small, reliable fundraising event.
+    category: 0
+    baseCost: 10000
+    baseEffect: 15000
+    successChance: 1
+    modifiers:
+    - staffName: 
+      role: 0
+      type: 1
+      value: 0.1
+  - actionName: Corporate Dinner
+    description: High-end donor event with larger returns but riskier optics.
+    category: 0
+    baseCost: 20000
+    baseEffect: 35000
+    successChance: 0.8
+    modifiers:
+    - staffName: 
+      role: 1
+      type: 2
+      value: 0.05
+    - staffName: 
+      role: 0
+      type: 1
+      value: 0.15
+  - actionName: Neighborhood Meetup
+    description: Hold a small, friendly event to meet voters.
+    category: 1
+    baseCost: 12000
+    baseEffect: 0.02
+    successChance: 1
+    modifiers:
+    - staffName: 
+      role: 2
+      type: 1
+      value: 0.1
+  - actionName: City Rally
+    description: Large public rally with big potential turnout but higher cost and
+      risk.
+    category: 1
+    baseCost: 25000
+    baseEffect: 0.05
+    successChance: 0.85
+    modifiers:
+    - staffName: 
+      role: 1
+      type: 2
+      value: 0.05
+    - staffName: 
+      role: 2
+      type: 1
+      value: 0.15
+  - actionName: Community Clean-Up
+    description: Volunteer event to show goodwill and earn small PR gains.
+    category: 3
+    baseCost: 8000
+    baseEffect: 0.015
+    successChance: 1
+    modifiers:
+    - staffName: 
+      role: 2
+      type: 1
+      value: 0.05
+  - actionName: Charity Gala
+    description: Sponsor a public charity event; impressive but expensive and can
+      backfire.
+    category: 3
+    baseCost: 25000
+    baseEffect: 0.04
+    successChance: 0.85
+    modifiers:
+    - staffName: 
+      role: 1
+      type: 2
+      value: 0.05
+    - staffName: 
+      role: 0
+      type: 0
+      value: -0.1
+  - actionName: Team Workshop
+    description: Basic team training session for small internal improvements.
+    category: 2
+    baseCost: 5000
+    baseEffect: 5000
+    successChance: 1
+    modifiers:
+    - staffName: 
+      role: 0
+      type: 1
+      value: 0.1
+  - actionName: Strategic Audit
+    description: Comprehensive internal review that could lead to major efficiency
+      gains.
+    category: 2
+    baseCost: 10000
+    baseEffect: 15000
+    successChance: 0.8
+    modifiers:
+    - staffName: 
+      role: 0
+      type: 1
+      value: 0.2
+    - staffName: 
+      role: 1
+      type: 2
+      value: 0.05

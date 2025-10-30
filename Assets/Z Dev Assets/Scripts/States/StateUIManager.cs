@@ -47,6 +47,9 @@ public class StateUIManager : MonoBehaviour
 
     void HandleClick()
     {
+        if (ActionPanelUI.instance != null && ActionPanelUI.instance.gameObject.activeInHierarchy)
+            return;
+
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 mouseWorld = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -114,6 +117,12 @@ public class StateUIManager : MonoBehaviour
 
         selectedNameText.text = "";
     }
+
+    public StateSetup GetCurrentSelectedState()
+    {
+        return currentSelected;
+    }
+
 
     private void ResetSelection(StateSetup state)
     {
