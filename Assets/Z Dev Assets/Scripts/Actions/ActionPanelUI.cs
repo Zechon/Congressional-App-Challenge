@@ -13,7 +13,7 @@ public class ActionPanelUI : MonoBehaviour
     [SerializeField] private GameObject actionButtonPrefab;
 
     [Header("Action + Staff Databases")]
-    public ActionDatabase actionDatabase;
+    [SerializeField] private ActionDatabase actionDatabase;
 
     private StateSetup currentState;
     private List<ActionDatabase.CampaignAction> currentActions = new List<ActionDatabase.CampaignAction>();
@@ -85,7 +85,7 @@ public class ActionPanelUI : MonoBehaviour
         Debug.Log($"Selected action: {actionName} (${actionCost}) in {currentState.stateName}");
 
         if (ConfirmationPanel.instance != null)
-            ConfirmationPanel.instance.Show(currentState, actionName);
+            ConfirmationPanel.instance.Show(currentState, actionName, actionCost);
 
         Hide();
     }

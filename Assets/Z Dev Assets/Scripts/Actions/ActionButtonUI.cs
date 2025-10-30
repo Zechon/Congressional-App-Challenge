@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Text;
 using System.Collections.Generic;
 
 public class ActionButtonUI : MonoBehaviour
@@ -27,7 +28,7 @@ public class ActionButtonUI : MonoBehaviour
     [SerializeField] private TMP_Text successTxt;
     [SerializeField] private TMP_Text timeTxt;
 
-    [Header("Staff Frames")]
+    [Header("Staff")]
     [SerializeField] private Image finFrameImg;
     [SerializeField] private Color finFrameColor;
     [SerializeField] private Image fieldFrameImg;
@@ -41,48 +42,49 @@ public class ActionButtonUI : MonoBehaviour
     {
         actionData = action;
 
-        // Basic info
-        label.text = action.actionName;
         categoryText.text = $"[{action.category}]";
-        descriptionText.text = action.description;
         categoryBackground.color = GetCategoryColor(action.category);
+        descriptionText.text = action.description;
 
-        // Apply staff modifiers (if any)
         var result = ActionModifierUtility.ApplyModifiers(action);
 
-        // Cost (show strikethrough if changed)
         bool costChanged = Mathf.Abs(result.modifiedCost - action.baseCost) > 0.1f;
         string costText = costChanged
-            ? $"<s>${action.baseCost:N0}</s> ${result.modifiedCost:N0}"
-            : $"${action.baseCost:N0}";
+            ? $"<s>${action.baseCost}K</s> ${result.modifiedCost:0}K"
+            : $"${action.baseCost}K";
         costTxt.text = "Cost: " + costText;
         costImg.color = costColor;
 
-        // Effect text based on category
-        string effectText = action.category switch
+        string v = action.category switch
         {
-            ActionDatabase.EffectCategory.Money => $"Effect: +${result.modifiedEffect:N0}",
-            ActionDatabase.EffectCategory.VoterSway => $"Effect: +{result.modifiedEffect * 100f:0.#}% voters",
-            ActionDatabase.EffectCategory.InternalPrep => $"Effect: +${result.modifiedEffect:N0} efficiency",
-            ActionDatabase.EffectCategory.PR => $"Effect: +{result.modifiedEffect * 100f:0.#}% favor",
-            _ => $"Effect: {result.modifiedEffect}"
+            ActionDatabase.EffectCategory.Money => $"Effect: ${result.modifiedEffect:0}K",
+            ActionDatabase.EffectCategory.VoterSway =>
+                $"Effect: {result.modifiedEffect * 100f:0.#}% of state voters",
+            ActionDatabase.EffectCategory.InternalPrep =>
+                $"Effect: {result.modifiedEffect * 100f:0.#}% efficiency",
+            ActionDatabase.EffectCategory.PR =>
+                $"Effect: {result.modifiedEffect * 100f:0.#}% favor",
+            _ => throw new System.NotImplementedException()
         };
+        string effectText = v;
+
         effectTxt.text = effectText;
         effectImg.color = effectColor;
 
-        // Success chance
         successTxt.text = $"Chance: {result.modifiedSuccessChance * 100f:0}%";
         successImg.color = successColor;
 
-        // Duration (static)
-        timeTxt.text = "Time: 1 Week";
+        timeTxt.text = "Time Needed: 1 Week";
         timeImg.color = timeColor;
 
-        // Static staff frame colors (for visual grouping)
         finFrameImg.color = finFrameColor;
         fieldFrameImg.color = fieldFrameColor;
         comFrameImg.color = comFrameColor;
+
+        label.text = action.actionName;
     }
+
+
 
     public void OnClick()
     {

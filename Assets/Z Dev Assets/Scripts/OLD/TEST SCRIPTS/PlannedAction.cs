@@ -1,4 +1,4 @@
-public class OLDPlannedAction
+public class PlannedAction
 {
     public string stateName;
     public string actionName;
@@ -7,7 +7,7 @@ public class OLDPlannedAction
 
     public float effect; 
 
-    public OLDPlannedAction(string stateName, string actionName, int cost, int week, float effect = 0f)
+    public PlannedAction(string stateName, string actionName, int cost, int week, float effect = 0f)
     {
         this.stateName = stateName;
         this.actionName = actionName;

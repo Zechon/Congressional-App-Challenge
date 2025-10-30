@@ -6,9 +6,9 @@ public enum PartyColor { Brown, Orange, Purple }
 [DisallowMultipleComponent]
 public class StateSetup : MonoBehaviour
 {
-    Color orange = new Color(1f, 0.64f, 0f, 1f);
-    Color purple = new Color(0.627f, 0.125f, 0.941f, 1f);
-    Color brown = new Color(0.588f, 0.294f, 0f, 1f);
+    Color orange = new Color(1.0f, 0.64f, 0.0f, 1.0f);
+    Color purple = new Color(0.627f, 0.125f, 0.941f, 1.0f);
+    Color brown = new Color(0.588f, 0.294f, 0.0f);
 
     [Header("State Info")]
     public string stateName;
@@ -24,14 +24,15 @@ public class StateSetup : MonoBehaviour
 
     [HideInInspector] public PartyColor currentColor;
 
-    void Awake()
+    public void Start()
     {
-        if (spr == null) spr = GetComponent<Image>();
-        CalculateStateColor();
+        spr = GetComponent<Image>();
     }
 
     public void CalculateStateColor()
     {
+        if (spr == null)
+            spr = GetComponent<Image>();
         if (orangePercent >= 0.6f)
         {
             spr.color = orange;
@@ -48,4 +49,7 @@ public class StateSetup : MonoBehaviour
             currentColor = PartyColor.Brown;
         }
     }
+
+    public float OrangeRatioClamped() => Mathf.Clamp01(orangePercent);
+    public float PurpleRatioClamped() => Mathf.Clamp01(purplePercent);
 }

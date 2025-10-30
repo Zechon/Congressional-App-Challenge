@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class OLDActionPanel : MonoBehaviour
+public class ActionPanel : MonoBehaviour
 {
-    public static OLDActionPanel instance;
+    public static ActionPanel instance;
 
     [Header("UI References")]
     public Transform contentParent;   // ScrollView/Viewport/Content
@@ -50,7 +50,7 @@ public class OLDActionPanel : MonoBehaviour
     {
         if (currentState == null) return;
 
-        ConfirmationPanel.instance.Show(currentState, actionName);
+        ConfirmationPanel.instance.Show(currentState, actionName, cost);
         Hide();
     }
 }
