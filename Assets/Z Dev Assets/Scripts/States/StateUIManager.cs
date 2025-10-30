@@ -9,8 +9,9 @@ public class StateUIManager : MonoBehaviour
     [Header("UI References")]
     public TMP_Text selectedNameText;
     public TMP_Text selectedEcoText;
-    public GameObject selectedPanel;
-    public TMP_Text prcntText;
+    public TMP_Text p;
+    public TMP_Text o;
+    public TMP_Text t;
     public TMP_Text ttlVotes;
 
     [Header("Selection Settings")]
@@ -38,9 +39,6 @@ public class StateUIManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        selectedEcoText.text = "";
-        prcntText.text = "";
-        ttlVotes.text = "";
     }
 
     void Update()
@@ -71,29 +69,19 @@ public class StateUIManager : MonoBehaviour
 
         currentSelected = state;
 
-        selectedPanel.SetActive(true);
         selectedNameText.text = state.stateName;
         selectedEcoText.text = state.economyLvl switch
         {
-            1 => "Hyperinflated Economy",
-            2 => "Inflated",
-            3 => "Stable",
-            4 => "Growing Economy",
-            5 => "Booming Economy",
-            _ => "Unknown"
+            1 => "Eco: Hyperinflated",
+            2 => "Economy: Inflated",
+            3 => "Economy: Stable",
+            4 => "Economy: Growing",
+            5 => "Economy: Booming",
+            0 => "Economy Not Set",
+            _ => "Economy: Unknown"
         };
 
-        prcntText.text = state.currentColor switch
-        {
-            PartyColor.Purple => $"{state.PurpleRatioClamped() * 100f:0.#}% P",
-            PartyColor.Orange => $"{state.OrangeRatioClamped() * 100f:0.#}% O",
-            PartyColor.Brown => GameData.Party == "Orange"
-                ? $"{state.OrangeRatioClamped() * 100f:0.#}% O"
-                : $"{state.PurpleRatioClamped() * 100f:0.#}% P",
-            _ => ""
-        };
-
-        ttlVotes.text = state.stateVotes.ToString();
+        //ttlVotes.text = state.stateVotes.ToString();
 
         originalScaleSelected = state.transform.localScale;
         originalSiblingSelected = state.transform.GetSiblingIndex();
@@ -123,7 +111,6 @@ public class StateUIManager : MonoBehaviour
             currentSelected = null;
         }
 
-        selectedPanel.SetActive(false);
         selectedNameText.text = "";
     }
 

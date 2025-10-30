@@ -19,16 +19,6 @@ public class StateSetup : MonoBehaviour
     [Range(0f, 1f)] public float orangePercent;
     [Range(0f, 1f)] public float purplePercent;
 
-    [Header("Nearby States")]
-    public GameObject near1;
-    public GameObject near2;
-    public GameObject near3;
-    public GameObject near4;
-    public GameObject near5;
-    public GameObject near6;
-    public GameObject near7;
-    public GameObject near8;
-
     [Header("Other Setup")]
     public Image spr;
 
@@ -41,6 +31,8 @@ public class StateSetup : MonoBehaviour
 
     public void CalculateStateColor()
     {
+        if (spr == null)
+            spr = GetComponent<Image>();
         if (orangePercent >= 0.6f)
         {
             spr.color = orange;
