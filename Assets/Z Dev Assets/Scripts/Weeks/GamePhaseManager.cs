@@ -6,7 +6,7 @@ public class GamePhaseManager : MonoBehaviour
     public static GamePhaseManager instance;
 
     [Header("Game Settings")]
-    public int totalWeeks = 4;
+    public int totalWeeks = 3;   // 3 weeks of actions
     public int totalMonths = 8;
 
     [Header("Runtime Tracking")]
@@ -18,71 +18,53 @@ public class GamePhaseManager : MonoBehaviour
     public Animator anim;
 
     [Header("Tracking")]
-    public List<PlannedAction> plannedActions = new List<PlannedAction>();
+    public List<PlannedAction> plannedActions = new();
 
     private bool inResultsPhase = false;
 
-    private void Awake()
+    void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            if (anim != null)
-                anim.SetInteger("Week", currentWeek);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+
+        anim?.SetInteger("Week", currentWeek);
     }
 
     public void ConfirmAction(string stateName, string actionName, int cost)
     {
-        if (inResultsPhase)
-        {
-            Debug.LogWarning("Cannot plan actions during Results Phase!");
-            return;
-        }
+        if (inResultsPhase) return;
 
         if (playerBudget < cost)
         {
-            Debug.LogWarning("Not Enough Budget!");
+            Debug.LogWarning("Not enough budget!");
             return;
         }
 
         playerBudget -= cost;
+        plannedActions.Add(new PlannedAction(stateName, actionName, cost, currentWeek, 0.1f));
+        Debug.Log($"[Month {currentMonth} | Week {currentWeek}] Planned {actionName} in {stateName}.");
 
-        var action = new PlannedAction(stateName, actionName, cost, currentWeek);
-        plannedActions.Add(action);
-
-        Debug.Log($"[Month {currentMonth} | Week {currentWeek}] Planned {actionName} in {stateName}. (Cost: {cost})");
-
-        // Move to next week or phase
         if (currentWeek < totalWeeks)
         {
             currentWeek++;
             anim?.SetInteger("Week", currentWeek);
-
-            if (currentWeek == 4)
-            {
-                Debug.Log("Triggering Press Conference!");
-                PressConferenceManager.instance?.StartConference();
-            }
         }
         else
         {
+            // After week 3
+            PressConferenceManager.instance?.StartConference();
             EndPlanningPhase();
         }
     }
 
-    private void EndPlanningPhase()
+    void EndPlanningPhase()
     {
-        Debug.Log($"Month {currentMonth} complete! Moving to results slideshow.");
+        Debug.Log($"Month {currentMonth} complete! Showing results.");
         inResultsPhase = true;
         ResultsPhaseUI.instance?.Show(plannedActions, OnResultsComplete);
     }
 
-    private void OnResultsComplete()
+    void OnResultsComplete()
     {
         inResultsPhase = false;
         plannedActions.Clear();
@@ -96,8 +78,8 @@ public class GamePhaseManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("All 8 months complete — election results phase!");
-            // TODO: final election results phase
+            Debug.Log("All months complete — final election results phase!");
+            // TODO: trigger final election results UI
         }
     }
 }

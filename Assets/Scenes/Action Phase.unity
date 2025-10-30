@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Virginia
-  stateVotes: 13
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -702,8 +702,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4812260a5c22fab4a88464d1a20077cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateName: Washington
-  stateVotes: 12
+  stateName: Vermont
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -1068,8 +1068,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4812260a5c22fab4a88464d1a20077cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateName: Arizona
-  stateVotes: 11
+  stateName: Vermont
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -1396,7 +1396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Pennsylvania
-  stateVotes: 19
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -1849,7 +1849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Kentucky
-  stateVotes: 8
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -2148,7 +2148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: South Dakota
-  stateVotes: 3
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -2513,7 +2513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: New Jersey
-  stateVotes: 14
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -2831,7 +2831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Florida
-  stateVotes: 30
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -3036,7 +3036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Wisconsin
-  stateVotes: 10
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -3420,7 +3420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Arkansas
-  stateVotes: 6
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -3891,7 +3891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Michigan
-  stateVotes: 15
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -4100,7 +4100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Missouri
-  stateVotes: 10
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -4291,7 +4291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Tennesse
-  stateVotes: 11
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -4478,7 +4478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: North Dakota
-  stateVotes: 3
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -4652,7 +4652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Louisiana
-  stateVotes: 8
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -4923,7 +4923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Delaware
-  stateVotes: 3
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -5095,7 +5095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: South Carolina
-  stateVotes: 9
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -5283,7 +5283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Alabama
-  stateVotes: 9
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -5459,7 +5459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Georgia
-  stateVotes: 16
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -5642,7 +5642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Nebraska
-  stateVotes: 5
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -6134,7 +6134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Indiana
-  stateVotes: 11
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -6452,8 +6452,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4812260a5c22fab4a88464d1a20077cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateName: California
-  stateVotes: 54
+  stateName: Vermont
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -6763,7 +6763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Iowa
-  stateVotes: 6
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -6994,8 +6994,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4812260a5c22fab4a88464d1a20077cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateName: Colorado
-  stateVotes: 10
+  stateName: Vermont
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -7436,7 +7436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Kansas
-  stateVotes: 6
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -7612,7 +7612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Ohio
-  stateVotes: 17
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -7999,8 +7999,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4812260a5c22fab4a88464d1a20077cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateName: New Mexico
-  stateVotes: 5
+  stateName: Vermont
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -8708,7 +8708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Oklahoma
-  stateVotes: 7
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -8891,7 +8891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Minnesota
-  stateVotes: 10
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -9087,7 +9087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Texas
-  stateVotes: 40
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -9438,8 +9438,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4812260a5c22fab4a88464d1a20077cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateName: Oregon
-  stateVotes: 8
+  stateName: Vermont
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -9758,7 +9758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: New York
-  stateVotes: 28
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -9955,7 +9955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Mississippi
-  stateVotes: 6
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -10372,7 +10372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Vermont
-  stateVotes: 3
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -10689,7 +10689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Massachusetts
-  stateVotes: 11
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -10870,8 +10870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4812260a5c22fab4a88464d1a20077cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateName: Utah
-  stateVotes: 6
+  stateName: Vermont
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -11045,7 +11045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: North Carolina
-  stateVotes: 16
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -11238,7 +11238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4812260a5c22fab4a88464d1a20077cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateName: Idaho
+  stateName: Vermont
   stateVotes: 4
   economyLvl: 0
   orangePercent: 0
@@ -15350,7 +15350,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -9, y: -9, z: 0}
@@ -15368,7 +15368,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -7, y: -9, z: 0}
@@ -15404,7 +15404,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -3, y: -9, z: 0}
@@ -15476,7 +15476,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 5, y: -9, z: 0}
@@ -15773,7 +15773,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 12, y: -8, z: 0}
@@ -15863,7 +15863,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -4, y: -7, z: 0}
@@ -15899,7 +15899,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 0, y: -7, z: 0}
@@ -15944,7 +15944,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 5, y: -7, z: 0}
@@ -15980,7 +15980,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 9, y: -7, z: 0}
@@ -16052,7 +16052,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -9, y: -6, z: 0}
@@ -16079,7 +16079,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -6, y: -6, z: 0}
@@ -16106,7 +16106,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -3, y: -6, z: 0}
@@ -16151,7 +16151,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 2, y: -6, z: 0}
@@ -16169,7 +16169,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: -6, z: 0}
@@ -16187,7 +16187,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 6, y: -6, z: 0}
@@ -16223,7 +16223,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 10, y: -6, z: 0}
@@ -16295,7 +16295,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -8, y: -5, z: 0}
@@ -16349,7 +16349,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -2, y: -5, z: 0}
@@ -16394,7 +16394,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 3, y: -5, z: 0}
@@ -16412,7 +16412,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 5, y: -5, z: 0}
@@ -16466,7 +16466,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 11, y: -5, z: 0}
@@ -16502,7 +16502,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -11, y: -4, z: 0}
@@ -16538,7 +16538,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -7, y: -4, z: 0}
@@ -16763,7 +16763,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 7, y: -3, z: 0}
@@ -16772,7 +16772,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 8, y: -3, z: 0}
@@ -16790,7 +16790,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 10, y: -3, z: 0}
@@ -16844,7 +16844,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -10, y: -2, z: 0}
@@ -17060,7 +17060,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 11, y: 0, z: 0}
@@ -17105,7 +17105,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -10, y: 1, z: 0}
@@ -17150,7 +17150,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 7, y: 1, z: 0}
@@ -17249,7 +17249,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: 2, z: 0}
@@ -17330,7 +17330,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -13, y: 3, z: 0}
@@ -17465,7 +17465,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -12, y: 4, z: 0}
@@ -17483,7 +17483,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -10, y: 4, z: 0}
@@ -17528,7 +17528,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 5, y: 4, z: 0}
@@ -17636,7 +17636,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -9, y: 5, z: 0}
@@ -17717,7 +17717,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 0, y: 5, z: 0}
@@ -17744,7 +17744,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 3, y: 5, z: 0}
@@ -17753,7 +17753,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: 5, z: 0}
@@ -17780,7 +17780,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 7, y: 5, z: 0}
@@ -17825,7 +17825,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 12, y: 5, z: 0}
@@ -17852,7 +17852,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -11, y: 6, z: 0}
@@ -17879,7 +17879,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -8, y: 6, z: 0}
@@ -17942,7 +17942,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -1, y: 6, z: 0}
@@ -18032,7 +18032,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 9, y: 6, z: 0}
@@ -18050,7 +18050,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 11, y: 6, z: 0}
@@ -18113,7 +18113,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -8, y: 7, z: 0}
@@ -18221,7 +18221,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: 7, z: 0}
@@ -18230,7 +18230,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 5, y: 7, z: 0}
@@ -18257,7 +18257,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 8, y: 7, z: 0}
@@ -18266,7 +18266,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 9, y: 7, z: 0}
@@ -18293,7 +18293,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 12, y: 7, z: 0}
@@ -18347,7 +18347,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -8, y: 8, z: 0}
@@ -18392,7 +18392,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -3, y: 8, z: 0}
@@ -18446,7 +18446,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 3, y: 8, z: 0}
@@ -18473,7 +18473,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 2142197437, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
       - {fileID: 559695406, guid: 8feed6b2176659344ad0771e1e2f8f1c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 6, y: 8, z: 0}
@@ -18643,8 +18643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4812260a5c22fab4a88464d1a20077cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateName: Nevada
-  stateVotes: 6
+  stateName: Vermont
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -18820,7 +18820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Maryland
-  stateVotes: 10
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -19139,7 +19139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Illinois
-  stateVotes: 19
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -19470,7 +19470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Connecticut
-  stateVotes: 7
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
@@ -19643,8 +19643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4812260a5c22fab4a88464d1a20077cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateName: Wyoming
-  stateVotes: 3
+  stateName: Vermont
+  stateVotes: 4
   economyLvl: 0
   orangePercent: 0
   purplePercent: 0
